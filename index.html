@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INCEPTIONHUB</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <!-- SPLASH OVERLAY: keep this at top of <body> -->
+  <div id="splash-overlay" aria-hidden="true">
+    <img src="images/logo.png" alt="InceptionHub" class="splash-logo">
+  </div>
+
+  <!-- TOP LEFT LOGO -->
+  <!-- REPLACE the existing .logo block with this -->
+  <div class="logo logo-pill ">
+    <!-- keep same image — path uses your uploaded file -->
+    <img src="images/logo.png" class="logo-img" alt="InceptionHub">
+
+    <!-- thin divider -->
+    <span class="logo-divider" aria-hidden="true"></span>
+
+    <!-- visual menu (purely visual; does not change existing JS) -->
+    <button class="logo-menu" aria-label="Open menu">
+      <span class="logo-hamburger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+
+  <!-- TOP ICONS -->
+  <div class="icons-section">
+
+    <!-- 1 - Registration (Company Formation, Incorporation) -->
+    <a href="Pages/Registration.html" class="icon-item" style="text-decoration:none;">
+      <div class="icon-box" style="background:linear-gradient(135deg,#0A2E5C 0%,#1a4a7a 100%)">
+        <i class="fas fa-handshake" style="font-size:28px;color:#fff;"></i>
+      </div>
+      <div class="icon-label">Registration</div>
+    </a>
+
+    <!-- 2 - Legal Registration (GST, FSSAI, Licenses, Trademark) -->
+    <a href="Pages/LegalRegistration.html" class="icon-item" style="text-decoration:none;">
+      <div class="icon-box" style="background:linear-gradient(135deg,#F15A3A 0%,#e74c3c 100%)">
+        <i class="fas fa-file-lines" style="font-size:28px;color:#fff;"></i>
+      </div>
+      <div class="icon-label">Legal Registration</div>
+    </a>
+
+    <!-- 3 - Online Presence (Website, SEO, Digital Branding) -->
+    <a href="Pages/OnlinePresence.html" class="icon-item" style="text-decoration:none;">
+      <div class="icon-box" style="background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%)">
+        <i class="fas fa-laptop-code" style="font-size:28px;color:#fff;"></i>
+      </div>
+      <div class="icon-label">Online Presence</div>
+    </a>
+
+    <!-- 4 - Business Operations (Accounting, Payroll, HR, Consulting) -->
+    <a href="Pages/BusinessOperations.html" class="icon-item" style="text-decoration:none;">
+      <div class="icon-box" style="background:linear-gradient(135deg,#27ae60 0%,#2ecc71 100%)">
+        <i class="fas fa-chart-line" style="font-size:28px;color:#fff;"></i>
+      </div>
+      <div class="icon-label">Business Operations</div>
+    </a>
+
+    <!-- 5 - Compliances (ROC, GST Returns, ITR, TDS) -->
+    <a href="Pages/Compliances.html" class="icon-item" style="text-decoration:none;">
+      <div class="icon-box" style="background:linear-gradient(135deg,#e67e22 0%,#f39c12 100%)">
+        <i class="fas fa-clipboard-check" style="font-size:28px;color:#fff;"></i>
+      </div>
+      <div class="icon-label">Compliances</div>
+    </a>
+
+  </div>
+
+  <!-- HERO CENTER -->
+  <main class="hero-wrapper">
+    <div class="hero-content">
+      <img src="images/logo.png" alt="Hero Logo" class="hero-img">
+      <h2 class="hero-tagline">Transforming Your Ideas Into Reality </h2>
+      <button class="watch-btn" type="button">Watch Video</button>
+    </div>
+
+    <!-- DOWN ARROW -->
+    <div class="down-wrap" aria-hidden="true">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </main>
+
+  <section class="stage-overlay" aria-live="polite" aria-atomic="true">
+    <div class="stage-inner">
+      <div class="stage-icon-wrap">
+        <i class="fas stage-icon"></i>
+      </div>
+      <h3 class="stage-title"></h3>
+      <p class="stage-text"></p>
+      <button class="stage-cta" type="button">Start Registration</button>
+    </div>
+  </section>
+
+
+
+
+  <div class="scroll-panels" aria-hidden="true">
+    <section class="icon-scroll-panel" data-stage-index="0"></section>
+    <section class="icon-scroll-panel" data-stage-index="1"></section>
+    <section class="icon-scroll-panel" data-stage-index="2"></section>
+    <section class="icon-scroll-panel" data-stage-index="3"></section>
+    <section class="icon-scroll-panel" data-stage-index="4"></section>
+    <section class="icon-scroll-panel" data-stage-index="5"></section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer" id="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="InceptionHub">
+          <p>Transforming your ideas into reality with comprehensive business solutions.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="Pages/Registration.html">Company Registration</a></li>
+            <li><a href="Pages/LegalRegistration.html">Legal Registration</a></li>
+            <li><a href="Pages/OnlinePresence.html">Online Presence</a></li>
+            <li><a href="Pages/BusinessOperations.html">Business Operations</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
+            <li><a href="mailto:contact@inceptionhub.com"><i class="fas fa-envelope"></i> contact@inceptionhub.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 InceptionHub. All rights reserved.</p>
+        <div>
+          <a href="#" style="color: #475569; text-decoration: none; font-size: 14px;">Privacy Policy</a>
+          <span style="color: #94a3b8; margin: 0 10px;">|</span>
+          <a href="#" style="color: #475569; text-decoration: none; font-size: 14px;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Footer Styles */
+    .main-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      color: #1e293b;
+      padding: 60px 0 30px;
+      border-top: 1px solid #e2e8f0;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      z-index: 100;
+    }
+
+    .main-footer.footer-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .main-footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .main-footer .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .main-footer .footer-brand img {
+      height: 50px;
+      margin-bottom: 16px;
+    }
+
+    .main-footer .footer-brand p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .main-footer .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .main-footer .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0A2E5C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .main-footer .social-link:hover {
+      background: #F15A3A;
+      transform: translateY(-3px);
+    }
+
+    .main-footer .footer-column h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0A2E5C;
+    }
+
+    .main-footer .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .main-footer .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .main-footer .footer-links a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .main-footer .footer-links a:hover {
+      color: #F15A3A;
+    }
+
+    .main-footer .footer-links a i {
+      margin-right: 8px;
+    }
+
+    .main-footer .footer-bottom {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .main-footer .footer-bottom p {
+      color: #475569;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .main-footer .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .main-footer .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+
+    /* Splash overlay (white center logo for 2s then fade-right) */
+    /* --- Splash overlay: fast right-fade exit --- */
+    #splash-overlay {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      z-index: 2147483647;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+      overflow: hidden;
+    }
+
+    /* bigger logo */
+    .splash-logo {
+      width: 550px;
+      max-width: 85%;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+
+    /* keyframes: hold visible, then quick fade + translate to right */
+    @keyframes splashFadeRight {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* hold visible */
+      100% {
+        opacity: 0;
+        transform: translateX(60%);
+      }
+
+      /* fast exit to right */
+    }
+
+    /* 2s hold, then 250ms fast exit with snappy easing */
+    #splash-overlay {
+      animation: splashFadeRight 2s cubic-bezier(.22, .9, .36, 1) 3s forwards;
+    }
+
+    /* Mobile responsive splash overlay */
+    @media only screen and (max-width: 600px) {
+      .splash-logo {
+        width: 280px;
+        max-width: 80%;
+      }
+
+      @keyframes splashFadeRight {
+        0% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        80% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+    }
+
+    @media only screen and (max-width: 400px) {
+      .splash-logo {
+        width: 220px;
+        max-width: 75%;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      function playAnimations() {
+        document.documentElement.classList.remove('animated');
+        void document.documentElement.offsetWidth;
+        document.documentElement.classList.add('animated');
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          setTimeout(playAnimations, 80);
+        });
+      } else {
+        setTimeout(playAnimations, 80);
+      }
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') {
+          setTimeout(playAnimations, 120);
+        }
+      });
+    })();
+  </script>
+
+
+
+  <script>
+    (function () {
+      // Duration to hold the top-left & icons visible (ms)
+      const HOLD_S = 2000;
+
+      // Helper to safely re-trigger the .animated class so animations start after hold
+      function retriggerAnimatedIfPresent(root) {
+        if (!root.classList.contains('animated')) return;
+        // remove and re-add to restart CSS animations
+        root.classList.remove('animated');
+        // force reflow to ensure the re-add is noticed
+        void root.offsetWidth;
+        root.classList.add('animated');
+      }
+
+
+
+      // Also handle visibilitychange replay: when user returns to tab, replay sequence
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'visible') return;
+        const root = document.documentElement;
+
+        // If the intro/state might be gone but you want the 2s hold before icons show again,
+        // briefly add the hold class and then remove it to replay animation flow.
+        root.classList.add('delay-anim');
+
+        setTimeout(() => {
+          root.classList.remove('delay-anim');
+          retriggerAnimatedIfPresent(root);
+        }, HOLD_MS);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const HOLD_MS = 2000;            // hold time (ms)
+      const ROOT = document.documentElement;
+      const ANIM_CLASS = 'animated';
+      let observer = null;
+
+      function retriggerAnimated() {
+        // If animated is present, re-trigger it so CSS animations run now
+        if (ROOT.classList.contains(ANIM_CLASS)) {
+          ROOT.classList.remove(ANIM_CLASS);
+          // force reflow
+          void ROOT.offsetWidth;
+          ROOT.classList.add(ANIM_CLASS);
+        }
+      }
+
+      function watchForAnimatedOnce() {
+        // If animated will be added by other code later, catch it and retrigger then.
+        // Use a short-lived MutationObserver that disconnects after first match.
+        if (observer) {
+          try { observer.disconnect(); } catch (e) { }
+          observer = null;
+        }
+
+        observer = new MutationObserver((mutations, obs) => {
+          for (const m of mutations) {
+            if (m.type === 'attributes' && m.attributeName === 'class') {
+              if (ROOT.classList.contains(ANIM_CLASS)) {
+                retriggerAnimated();
+                obs.disconnect();
+                observer = null;
+                return;
+              }
+            }
+          }
+        });
+
+        observer.observe(ROOT, { attributes: true, attributeFilter: ['class'] });
+      }
+
+      function releaseHold() {
+        // remove hold class so original CSS rules take over
+        ROOT.classList.remove('delay-anim');
+
+        // If .animated is already present, re-trigger it immediately
+        if (ROOT.classList.contains(ANIM_CLASS)) {
+          retriggerAnimated();
+        } else {
+          // If .animated is not present yet, watch for it and retrigger when added
+          watchForAnimatedOnce();
+        }
+      }
+
+      // Apply hold on load, then release after HOLD_MS
+      window.addEventListener('load', () => {
+        // Ensure hold is set before other code runs (best-effort)
+        ROOT.classList.add('delay-anim');
+
+        // schedule release
+        setTimeout(releaseHold, HOLD_MS);
+      });
+
+      // Also replay when user returns to the tab (optional - mirrors your other visibility logic)
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'visible') return;
+
+        // Add hold again briefly, then release and retrigger animations.
+        ROOT.classList.add('delay-anim');
+        setTimeout(releaseHold, HOLD_MS);
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const splash = document.getElementById('splash-overlay');
+      if (!splash) return;
+
+      const HOLD_MS = 2000; // keep visible for 2s
+      const EXIT_DURATION_MS = 800; // exit duration
+
+      // Ensure initial state (in case CSS isn't loaded yet)
+      splash.style.pointerEvents = 'auto';
+      splash.style.opacity = '1';
+      splash.style.transform = 'translateX(0)';
+
+      function cleanup() {
+        try {
+          if (splash.parentNode) splash.parentNode.removeChild(splash);
+        } catch (e) {
+          // fallback: hide if removal fails
+          splash.style.display = 'none';
+        }
+      }
+
+      function triggerExit() {
+        // If splash already removed, stop
+        if (!document.body.contains(splash)) return;
+
+        // Apply an explicit transition so JS controls the exit rhythm
+        splash.style.transition =
+          'transform ' + EXIT_DURATION_MS + 'ms cubic-bezier(.22,.9,.36,1), ' +
+          'opacity ' + EXIT_DURATION_MS + 'ms cubic-bezier(.22,.9,.36,1)';
+
+        // Force layout so transition will be applied cleanly
+        void splash.offsetWidth;
+
+        // Start exit: translate right and fade out
+        splash.style.transform = 'translateX(60%)';
+        splash.style.opacity = '0';
+
+        // Remove when transition finishes (listen once)
+        const onTransitionEnd = (ev) => {
+          if (ev.propertyName === 'opacity' || ev.propertyName === 'transform') {
+            // cleanup removes the splash node
+            cleanup();
+
+            // After the splash is fully removed, wait 2 seconds then show logo
+            // Use a small safety check to ensure the logo element exists
+            setTimeout(() => {
+              const logo = document.querySelector('.logo.logo-pill');
+              if (logo) {
+                logo.classList.add('logo-appear');
+              }
+            }, 2000); // <<-- WAIT 2 seconds after the splash exit finishes
+          }
+        };
+
+        splash.addEventListener('transitionend', onTransitionEnd, { once: true });
+
+        // Safety fallback: ensure splash removed after a timeout (in case transitionend doesn't fire)
+        setTimeout(() => {
+          if (document.body.contains(splash)) cleanup();
+          // If splash was force-removed by fallback, still schedule logo after 2s
+          setTimeout(() => {
+            const logo = document.querySelector('.logo.logo-pill');
+            if (logo) logo.classList.add('logo-appear');
+          }, 2000);
+        }, EXIT_DURATION_MS + 300);
+      }
+
+
+      // Schedule exit after hold (if page already loaded or on load)
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(triggerExit, HOLD_MS);
+      } else {
+        window.addEventListener('load', () => setTimeout(triggerExit, HOLD_MS), { once: true });
+      }
+
+      // If user switches tabs and returns, replay the hold+exit sequence
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'visible') return;
+        // If overlay is already removed, nothing to replay
+        if (!document.body.contains(splash)) return;
+
+        // Reset any transition and styles, force reflow, then re-schedule exit
+        splash.style.transition = '';
+        splash.style.transform = 'translateX(0)';
+        splash.style.opacity = '1';
+        void splash.offsetWidth;
+
+        setTimeout(triggerExit, HOLD_MS);
+      });
+    })();
+
+  </script>
+  <script>
+    (function () {
+      // Config: match your earlier values
+      const HOLD_MS = 2000;           // time the splash is shown before exit (ms)
+      const EXIT_DURATION_MS = 800;   // how long the splash exit transition runs (ms)
+      const LOGO_DELAY_AFTER_SPLASH_MS = 2000; // the 2s you requested (ms)
+
+      const splash = document.getElementById('splash-overlay');
+      if (!splash) return; // nothing to do
+
+      let fallbackCleanupTimer = null;
+      let logoTimer = null;
+      let transitionEnded = false;
+
+      function cleanupSplashNode() {
+        try {
+          if (splash.parentNode) splash.parentNode.removeChild(splash);
+        } catch (e) {
+          splash.style.display = 'none';
+        }
+      }
+
+      function scheduleLogoAppear() {
+        // Avoid scheduling multiple times
+        if (logoTimer) return;
+        logoTimer = setTimeout(() => {
+          const logo = document.querySelector('.logo.logo-pill');
+          if (logo) logo.classList.add('logo-appear');
+          logoTimer = null;
+        }, LOGO_DELAY_AFTER_SPLASH_MS);
+      }
+
+      function onSplashTransitionEnd(ev) {
+        // we only care about transform or opacity finishing
+        if (ev.propertyName !== 'opacity' && ev.propertyName !== 'transform') return;
+        if (transitionEnded) return; // ensure only once
+        transitionEnded = true;
+
+        // clear fallback
+        if (fallbackCleanupTimer) {
+          clearTimeout(fallbackCleanupTimer);
+          fallbackCleanupTimer = null;
+        }
+
+        // remove the element cleanly
+        cleanupSplashNode();
+
+        // schedule logo after 2s (your requested delay)
+        scheduleLogoAppear();
+      }
+
+      function triggerExit() {
+        if (!document.body.contains(splash)) return;
+
+        // Ensure we reset any previous state
+        transitionEnded = false;
+        if (logoTimer) { clearTimeout(logoTimer); logoTimer = null; }
+
+        // Apply transition that matches your CSS timing
+        splash.style.transition =
+          'transform ' + EXIT_DURATION_MS + 'ms cubic-bezier(.22,.9,.36,1), ' +
+          'opacity ' + EXIT_DURATION_MS + 'ms cubic-bezier(.22,.9,.36,1)';
+
+        // Force layout to ensure transition applies
+        void splash.offsetWidth;
+
+        // Start exit animation
+        splash.style.transform = 'translateX(60%)';
+        splash.style.opacity = '0';
+
+        // Listen once for transition end (opacity or transform)
+        splash.addEventListener('transitionend', onSplashTransitionEnd, { once: true });
+
+        // Safety fallback: if transitionend doesn't fire, remove after duration + margin
+        fallbackCleanupTimer = setTimeout(() => {
+          if (!transitionEnded) {
+            transitionEnded = true;
+            // remove it
+            cleanupSplashNode();
+            // still schedule logo after 2s
+            scheduleLogoAppear();
+          }
+        }, EXIT_DURATION_MS + 350);
+      }
+
+      // Start: show splash for HOLD_MS then exit (if page already interactive/loaded)
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        // small micro-delay to let paint happen, then schedule exit
+        setTimeout(triggerExit, HOLD_MS);
+      } else {
+        window.addEventListener('load', () => {
+          setTimeout(triggerExit, HOLD_MS);
+        }, { once: true });
+      }
+
+      // When user switches tabs, if splash is still present replay hold+exit sequence:
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'visible') return;
+
+        // If splash is gone already, nothing to do
+        if (!document.body.contains(splash)) return;
+
+        // Reset splash to visible state and cancel previous timers/listeners
+        if (fallbackCleanupTimer) { clearTimeout(fallbackCleanupTimer); fallbackCleanupTimer = null; }
+        if (logoTimer) { clearTimeout(logoTimer); logoTimer = null; }
+        transitionEnded = false;
+
+        // Reset inline styles and force layout so the exit will run again
+        splash.style.transition = '';
+        splash.style.transform = 'translateX(0)';
+        splash.style.opacity = '1';
+        void splash.offsetWidth;
+
+        // Schedule exit again after the hold
+        setTimeout(triggerExit, HOLD_MS);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const HIDE_DURATION_MS = 300; // hide logo for 0.5 second
+      const ICONS_HIDE_DURATION_MS = 300; // hide icons for 0.5 second
+      const START_HIDE_AFTER_PAINT_MS = 80; // short gap to let "visible" paint
+      const LOGO_REVEAL_TIMEOUT_MS = 1500; // safety fallback for icons trigger
+      const logo = document.querySelector('.logo.logo-pill');
+      const iconsSection = document.querySelector('.icons-section');
+      const splash = document.getElementById('splash-overlay');
+      if (!logo) return;
+
+      function ensureIconsVisible() {
+        if (!iconsSection) return;
+        iconsSection.classList.remove('icons-hidden', 'icons-no-transition', 'icons-reveal');
+        void iconsSection.offsetWidth;
+      }
+
+      function fadeIconsFromTopAfterDelay() {
+        if (!iconsSection) return;
+        // reset any previous animation
+        iconsSection.classList.remove('icons-reveal');
+        iconsSection.classList.remove('icons-hidden');
+        iconsSection.classList.remove('icons-no-transition');
+        void iconsSection.offsetWidth;
+
+        // hide instantly without transition
+        iconsSection.classList.add('icons-no-transition');
+        iconsSection.classList.add('icons-hidden');
+        void iconsSection.offsetWidth;
+
+        // after the hide duration, re-enable transitions and let it animate down
+        setTimeout(() => {
+          iconsSection.classList.remove('icons-no-transition');
+          // force reflow so transition picks up
+          void iconsSection.offsetWidth;
+          iconsSection.classList.remove('icons-hidden');
+          iconsSection.classList.add('icons-reveal');
+        }, ICONS_HIDE_DURATION_MS);
+      }
+
+      function waitForLogoTransition(callback) {
+        if (!logo) {
+          callback();
+          return;
+        }
+
+        let finished = false;
+        const finish = () => {
+          if (finished) return;
+          finished = true;
+          callback();
+        };
+
+        const onEnd = (ev) => {
+          if (ev.propertyName !== 'transform' && ev.propertyName !== 'opacity') return;
+          logo.removeEventListener('transitionend', onEnd);
+          finish();
+        };
+
+        logo.addEventListener('transitionend', onEnd);
+        setTimeout(() => {
+          logo.removeEventListener('transitionend', onEnd);
+          finish();
+        }, LOGO_REVEAL_TIMEOUT_MS);
+      }
+
+      // Idempotent guard
+      let done = false;
+      function runSequence() {
+        if (done) return;
+        done = true;
+
+        // 1) Ensure logo + icons are visible immediately in normal position
+        logo.classList.remove('logo-hidden', 'logo-reveal', 'no-transition');
+        ensureIconsVisible();
+        // Force a paint so the visible state is seen
+        void logo.offsetWidth;
+
+        // 2) After a tiny tick, hide instantly (no animation) for HIDE_DURATION_MS
+        setTimeout(() => {
+          // apply no-transition so hiding is instant
+          logo.classList.add('no-transition');
+          logo.classList.add('logo-hidden');
+
+          // force layout flush to ensure immediate hide
+          void logo.offsetWidth;
+
+          // 3) After the hide duration, reveal using animation
+          setTimeout(() => {
+            // remove no-transition so transitions work again
+            logo.classList.remove('no-transition');
+            // ensure hidden class removed so transform can animate to 0
+            logo.classList.remove('logo-hidden');
+
+            // force reflow then add reveal class to trigger transition
+            void logo.offsetWidth;
+            waitForLogoTransition(fadeIconsFromTopAfterDelay);
+            logo.classList.add('logo-reveal');
+          }, HIDE_DURATION_MS);
+
+        }, START_HIDE_AFTER_PAINT_MS);
+      }
+
+      // Robust detection of splash finish:
+      // - listens for transitionend and animationend on splash
+      // - watches for splash removal from DOM
+      // - fallback timeout
+      if (!splash || !document.body.contains(splash)) {
+        // splash already gone — immediately run sequence
+        runSequence();
+        return;
+      }
+
+      let handled = false;
+      function handleFinish() {
+        if (handled) return;
+        handled = true;
+        // small microtick to let splash's own cleanup run if any
+        setTimeout(runSequence, 0);
+      }
+
+      function onTransitionEnd(ev) {
+        if (ev.propertyName !== 'opacity' && ev.propertyName !== 'transform') return;
+        handleFinish();
+      }
+      function onAnimationEnd() { handleFinish(); }
+
+      splash.addEventListener('transitionend', onTransitionEnd, { passive: true });
+      splash.addEventListener('animationend', onAnimationEnd, { passive: true });
+
+      // Observe parent for removal of splash (other code may remove it)
+      if (splash.parentNode) {
+        const remover = new MutationObserver((mutations, obs) => {
+          for (const m of mutations) {
+            for (const node of m.removedNodes) {
+              if (node === splash) {
+                obs.disconnect();
+                handleFinish();
+                return;
+              }
+            }
+          }
+        });
+        remover.observe(splash.parentNode, { childList: true });
+      }
+
+      // Final fallback: ensure sequence runs after a safe timeout if nothing fires
+      setTimeout(() => { handleFinish(); }, 12000); // 12s safe fallback
+    })();
+  </script>
+
+
+
+</body>
+
+</html>

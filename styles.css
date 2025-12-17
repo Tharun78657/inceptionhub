@@ -1,0 +1,1765 @@
+/* --------------------------------------------------
+   GLOBAL RESET
+-------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  /* FIX: ensure full-page scroll area */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Enable smooth scrolling on all devices */
+  scroll-behavior: smooth;
+  /* FIX */
+  -webkit-overflow-scrolling: touch;
+  /* Allow scrolling but prevent bounce effect */
+  overscroll-behavior-y: auto;
+  overscroll-behavior-x: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #222;
+  position: relative;
+  /* Allow vertical panning; JS also sets pan-y on mobile */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.orange-header {
+  display: none;
+}
+
+/* --------------------------------------------------
+   HERO FIX CENTER
+-------------------------------------------------- */
+
+.hero-wrapper {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  z-index: 50 !important;
+  pointer-events: auto;
+  padding: 0 !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* --------------------------------------------------
+   TOP LEFT LOGO PILL
+-------------------------------------------------- */
+
+.logo {
+  position: fixed;
+  top: 0px;
+  left: 18px;
+  z-index: 60;
+}
+
+/* the pill container */
+.logo.logo-pill {
+  position: fixed;
+  left: 0px !important;
+
+  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 14px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(6, 20, 40, 0.12);
+  border: 1px solid rgba(2, 6, 23, 0.06);
+  height: 64px !important;
+  transition: transform 1.15s cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 1.15s ease-out;
+  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.logo.logo-pill:hover {
+  transform: none !important;
+  box-shadow: 0 8px 24px rgba(6, 20, 40, 0.12);
+}
+
+/* logo image */
+.logo.logo-pill .logo-img {
+  max-height: 48px !important;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-divider {
+  width: 1px;
+  height: 44px;
+  background: rgba(11, 37, 64, 0.06);
+  border-radius: 1px;
+}
+
+.logo-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: #0b2540;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.logo-hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.logo-hamburger span {
+  width: 18px;
+  height: 2.5px;
+  background: #0b2540;
+  border-radius: 2px;
+}
+
+.logo-menu-text {
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  color: #0b2540;
+}
+
+/* smooth sequence helper classes */
+.logo.logo-pill.no-transition {
+  transition: none !important;
+}
+
+.logo.logo-pill.logo-hidden {
+  opacity: 0;
+  transform: translateX(-220px);
+  pointer-events: none;
+}
+
+.logo.logo-pill.logo-reveal,
+.logo.logo-pill.logo-appear {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.logo.logo-pill .logo-img,
+.logo.logo-pill .logo-menu,
+.logo.logo-pill .logo-divider {
+  transition: transform 0.85s cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 0.85s ease-out;
+  transform: translateX(-6px);
+  opacity: 0.95;
+}
+
+.logo.logo-pill.logo-reveal .logo-img,
+.logo.logo-pill.logo-reveal .logo-menu,
+.logo.logo-pill.logo-reveal .logo-divider,
+.logo.logo-pill.logo-appear .logo-img,
+.logo.logo-pill.logo-appear .logo-menu,
+.logo.logo-pill.logo-appear .logo-divider {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* --------------------------------------------------
+   TOP ICONS
+-------------------------------------------------- */
+
+.icons-section {
+  position: fixed;
+  top: 50px;
+  left: 30%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 36px;
+  z-index: 55;
+  align-items: flex-start;
+  pointer-events: auto;
+  transition: transform 1.15s cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 1.15s ease-out;
+  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icons-section.icons-no-transition {
+  transition: none !important;
+}
+
+.icons-section.icons-hidden {
+  opacity: 0;
+  transform: translateY(-60px);
+  pointer-events: none;
+}
+
+.icons-section.icons-reveal {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.icons-section .icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  font: inherit;
+  color: inherit;
+  position: relative;
+  isolation: isolate;
+  transition: z-index 0.35s ease, opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.16, 0.84, 0.44, 1);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(15, 40, 80, 0.18);
+  transition: box-shadow 0.35s ease, transform 0.26s ease;
+  transform-origin: center;
+  z-index: 0;
+}
+
+.icon-img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.icon-item:focus-visible {
+  outline: 2px solid #f5a623;
+  outline-offset: 6px;
+  border-radius: 18px;
+}
+
+.icon-box::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.94);
+  border-radius: 14px;
+  background: rgba(26, 48, 89, 0.32);
+  box-shadow: 0 0 0 rgba(116, 114, 114, 0);
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(3px);
+  z-index: -1;
+}
+
+.icon-item:hover .icon-box::after,
+.icon-item:focus-visible .icon-box::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: blur(4px);
+}
+
+.icon-item.focused {
+  z-index: 1205;
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.icon-item.focused .icon-box::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: blur(4px);
+}
+
+.icon-item:hover .icon-box,
+.icon-item:focus-visible .icon-box {
+  box-shadow: 0 12px 18px rgba(15, 40, 80, 0.28);
+}
+
+.icon-item.focused .icon-box {
+  box-shadow: 0 12px 18px rgba(15, 40, 80, 0.28);
+  transform: scale(1.08);
+}
+
+.icon-label {
+  font-size: 13px;
+  color: #0b2540;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  opacity: 1;
+  margin-top: 10px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* --------------------------------------------------
+   HERO CONTENT
+-------------------------------------------------- */
+
+.hero-content {
+  text-align: center;
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-img {
+  width: 520px;
+  max-width: 78%;
+  height: auto;
+  display: block;
+  margin: 0 auto 22px;
+}
+
+.hero-tagline {
+  font-size: 32px;
+  color: #111;
+  margin-bottom: 28px;
+  font-weight: 400;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.35s cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 1.35s cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+
+.hero-wrapper.stage-muted .hero-tagline {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-tagline.hero-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-tagline.no-transition {
+  transition: none !important;
+}
+
+.watch-btn {
+  background: #f5a623;
+  color: #fff;
+  border: none;
+  padding: 12px 34px;
+  border-radius: 28px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(245, 166, 35, 0.18);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.35s cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 1.35s cubic-bezier(0.16, 0.84, 0.44, 1), box-shadow 0.2s ease;
+}
+
+.hero-wrapper.stage-muted .watch-btn {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.watch-btn.hero-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.watch-btn.no-transition {
+  transition: none !important;
+}
+
+.watch-btn:hover {
+  background: #ef9710;
+}
+
+/* --------------------------------------------------
+   DOWN ARROW
+-------------------------------------------------- */
+
+.down-wrap {
+  position: relative;
+  opacity: 0;
+  will-change: transform, opacity;
+  text-align: center;
+}
+
+.down-wrap i {
+  font-size: 48px;
+  color: #0b2540;
+  animation: bounce 2s infinite;
+  display: inline-block;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-12px);
+  }
+
+  60% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animated .down-wrap {
+  animation: fadeIn 600ms ease-out 1200ms both;
+}
+
+/* --------------------------------------------------
+   SCROLL PROGRESS BAR
+-------------------------------------------------- */
+
+.page-bg-layer {
+  position: fixed;
+  left: 0%;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.page-bg-layer.visible {
+  opacity: 1;
+}
+
+.page-bg-layer-2 {
+  z-index: 4;
+}
+
+.page-bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 10, 14, 0.06);
+  pointer-events: none;
+}
+
+.page-progress {
+  position: fixed;
+  left: 0px;
+  right: 12px;
+  bottom: 0px;
+  height: 6px;
+  border-radius: 0px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 1400;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(6, 20, 40, 0.12);
+  pointer-events: none;
+}
+
+.page-progress .bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 6px;
+  transform-origin: left center;
+  transition: width 0.12s linear;
+  background: linear-gradient(90deg, #f5a623, #e67822);
+}
+
+.page-progress .pct {
+  position: absolute;
+  right: 14px;
+  top: -22px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(6, 20, 40, 0.6);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   STAGE OVERLAY
+-------------------------------------------------- */
+
+.stage-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  z-index: 85;
+}
+
+.stage-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stage-inner {
+  text-align: center;
+  max-width: 520px;
+  width: calc(100% - 40px);
+  padding: 20px;
+}
+
+.stage-icon-wrap {
+  width: 148px;
+  height: 148px;
+  border-radius: 32px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.stage-icon {
+  font-size: 86px;
+  color: #0b2540;
+  transform: scale(0.88) translateY(60px);
+  opacity: 0;
+  transition: transform 1.35s cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 1.35s ease-out;
+}
+
+.stage-icon.revealed {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.stage-icon.no-transition,
+.stage-cta.no-transition {
+  transition: none !important;
+}
+
+.stage-title {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #0b2540;
+  font-weight: 700;
+}
+
+.stage-text {
+  font-size: 16px;
+  color: #1b2430;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.stage-cta {
+  background: #f5a623;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 32px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
+  margin-top: 12px;
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 1.35s cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 1.35s ease-out, box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.stage-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(245, 166, 35, 0.45);
+  background: #ef9710;
+}
+
+.stage-cta.revealed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.stage-btn {
+  background: #f5a623;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 32px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
+  margin-top: 12px;
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 1.35s cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 1.35s ease-out, box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.stage-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(245, 166, 35, 0.45);
+  background: #ef9710;
+}
+
+.stage-overlay.active .stage-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-wrapper.stage-muted {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* --------------------------------------------------
+   SCROLL PANELS
+-------------------------------------------------- */
+
+.scroll-panels {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.icon-scroll-panel {
+  min-height: 120vh;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  width: 100%;
+}
+
+.icon-item {
+  transition: transform 0.26s ease;
+}
+
+.icon-item.focused .icon-box::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.04) 28%,
+      transparent 60%);
+  pointer-events: none;
+  filter: blur(18px);
+  opacity: 1;
+  z-index: -1;
+}
+
+/* --------------------------------------------------
+   SIDEBAR + MENU
+-------------------------------------------------- */
+
+/* Make icons highest interactive layer */
+.icons-section {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+.icons-section .icon-item {
+  pointer-events: auto !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover duplication */
+.icons-section .icon-item:hover,
+.icons-section .icon-item:focus {
+  transform: none;
+  z-index: 1205;
+}
+
+.icons-section .icon-item:hover .icon-box::after,
+.icons-section .icon-item:focus .icon-box::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: blur(4px);
+}
+
+/* Disable hover when sidebar open */
+body:has(.inceptionhub-sidebar.open) .icons-section .icon-item:hover,
+body:has(.inceptionhub-sidebar.open) .icons-section .icon-item:focus {
+  transform: none !important;
+  z-index: 55 !important;
+}
+
+body:has(.inceptionhub-sidebar.open) .icons-section .icon-item:hover .icon-box::after,
+body:has(.inceptionhub-sidebar.open) .icons-section .icon-item:focus .icon-box::after {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0.94) !important;
+  filter: blur(3px) !important;
+}
+
+body:has(.inceptionhub-sidebar.open) .icon-item:hover .icon-box,
+body:has(.inceptionhub-sidebar.open) .icon-item:focus .icon-box {
+  box-shadow: 0 4px 8px rgba(15, 40, 80, 0.18) !important;
+  transform: scale(1) !important;
+}
+
+/* overlays don't block clicks when inactive */
+.page-bg-layer {
+  pointer-events: none !important;
+}
+
+.stage-overlay {
+  pointer-events: none;
+}
+
+.stage-overlay.active {
+  pointer-events: auto !important;
+}
+
+/* Hamburger -> X */
+.logo-menu {
+  -webkit-tap-highlight-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: #0b2540;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.logo-hamburger {
+  width: 22px;
+  height: 18px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  transform-origin: center;
+  transition: transform 240ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.logo-hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #0b2540;
+  border-radius: 2px;
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 200ms linear;
+  position: relative;
+}
+
+.logo-menu.open .logo-hamburger span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.logo-menu.open .logo-hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+.logo-menu.open .logo-hamburger span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Sidebar + overlay */
+.inceptionhub-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to right,
+      rgba(6, 20, 40, 0.3) 0%,
+      rgba(6, 20, 40, 0.4) 320px,
+      rgba(6, 20, 40, 0.65) 100%);
+  z-index: 15000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+
+.inceptionhub-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inceptionhub-sidebar {
+  position: fixed;
+  left: 0px !important;
+  top: 0 !important;
+  width: 280px;
+  max-width: calc(100% - 48px);
+  height: 100vh !important;
+  background: #0A2E5C;
+  box-shadow: 0 20px 60px rgba(6, 20, 40, 0.32);
+  border-right: 1px solid rgba(6, 20, 40, 0.06);
+  transform: translateX(-110%);
+  transition: transform 360ms cubic-bezier(0.16, 0.84, 0.44, 1);
+  z-index: 15001;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.inceptionhub-sidebar.open {
+  transform: translateX(0);
+}
+
+.inceptionhub-sidebar .menu-header-wrapper {
+  background: #0A2E5C !important;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.inceptionhub-sidebar .menu-header-wrapper .logo-img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.inceptionhub-sidebar .menu-header-wrapper .logo-divider {
+  width: 1px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+}
+
+.inceptionhub-sidebar .menu-header-wrapper .menu-close-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.inceptionhub-sidebar .menu-header-wrapper .menu-close-text {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.inceptionhub-sidebar .menu-close-btn .logo-hamburger {
+  width: 22px;
+  height: 18px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+}
+
+.inceptionhub-sidebar .menu-close-btn .logo-hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 200ms linear;
+  position: relative;
+}
+
+.inceptionhub-sidebar nav {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  background: #0A2E5C !important;
+}
+
+.inceptionhub-sidebar a.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  background: transparent;
+  position: relative;
+  transition: background 180ms ease, transform 150ms ease;
+}
+
+.inceptionhub-sidebar a.menu-link::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 260ms ease;
+}
+
+.inceptionhub-sidebar a.menu-link:hover {
+  transform: translateX(4px);
+  color: #F15A3A;
+  background: rgba(241, 90, 58, 0.1);
+}
+
+.inceptionhub-sidebar a.menu-link:hover::after {
+  width: calc(100% - 24px);
+  background: #F15A3A;
+}
+
+.inceptionhub-sidebar .menu-footer {
+  margin-top: auto;
+  padding: 18px;
+  font-size: 13px;
+  color: #ffffff;
+  opacity: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0A2E5C !important;
+}
+
+.inceptionhub-sidebar .menu-footer a {
+  color: #F15A3A;
+  text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .inceptionhub-sidebar {
+    width: 88%;
+    max-width: 320px;
+  }
+}
+
+/* Ensure logo pill z-index relative to sidebar */
+.logo.logo-pill {
+  z-index: 99999 !important;
+}
+
+body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
+  z-index: 15002;
+}
+
+/* --------------------------------------------------
+   MAIN FOOTER
+-------------------------------------------------- */
+
+.main-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: #0a0f1f;
+  color: #ffffff;
+  padding: 60px 0 30px;
+  margin-top: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    visibility 0s 0.6s;
+  z-index: 15003;
+  will-change: transform, opacity;
+}
+
+.main-footer.footer-visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0s 0s;
+}
+
+.footer-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-column h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer-column p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links a i {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.footer-links a:hover {
+  color: #f5a623;
+  transform: translateX(4px);
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+  background: #f5a623;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #f5a623;
+}
+
+.footer-legal span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+/* Tablets / small laptops */
+@media (max-width: 900px) {
+  .hero-img {
+    width: 360px;
+  }
+
+  .icons-section {
+    gap: 20px;
+    top: 28px;
+  }
+
+  .icon-item.focused .icon-box::before {
+    width: 160px;
+    height: 160px;
+    filter: blur(14px);
+  }
+
+  .page-progress {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    height: 5px;
+  }
+
+  .page-progress .pct {
+    right: 8px;
+    top: -20px;
+    font-size: 11px;
+  }
+
+  .logo.logo-pill {
+    padding: 6px 12px;
+    height: 58px !important;
+  }
+
+  .logo.logo-pill .logo-img {
+    max-height: 42px !important;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .icons-section {
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 16px;
+  }
+
+  .icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-img {
+    width: 70%;
+    height: 70%;
+  }
+
+  .hero-img {
+    width: 300px;
+    max-width: 82%;
+    margin-bottom: 18px;
+  }
+
+  .hero-tagline {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .watch-btn {
+    padding: 10px 26px;
+    font-size: 14px;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* Small phones - Desktop-like layout */
+@media (max-width: 480px) {
+
+  /* Background optimization for small screens */
+  body {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .page-bg-layer {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .hero-img {
+    width: 240px;
+    max-width: 65%;
+    margin-bottom: 16px;
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+    margin-bottom: 14px;
+    padding: 0 10px;
+  }
+
+  /* Keep icons at BOTTOM with labels visible */
+  .icons-section {
+    bottom: 16px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 6px;
+    padding: 8px 12px;
+    max-width: 98%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .icon-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+
+  .icon-img {
+    width: 70%;
+    height: 70%;
+  }
+
+  /* HIDE labels on small phones */
+  .icon-label {
+    display: none !important;
+  }
+
+  /* Compact logo pill on small screens */
+  .logo.logo-pill {
+    padding: 5px 8px;
+    height: 48px !important;
+  }
+
+  .logo.logo-pill .logo-img {
+    max-height: 34px !important;
+  }
+
+  .logo-divider {
+    height: 28px;
+  }
+
+  .logo-hamburger span {
+    width: 14px;
+  }
+
+  .logo-menu-text {
+    display: none;
+  }
+
+  .page-progress .pct {
+    display: none;
+  }
+
+  .footer-container {
+    padding: 0 18px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .main-footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-column h3 {
+    font-size: 18px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-legal {
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------
+   MEDIA QUERIES FOR RESPONSIVENESS
+-------------------------------------------------- */
+
+/* Small devices (phones, max-width: 600px) - Desktop-like layout */
+@media only screen and (max-width: 600px) {
+
+  /* Global adjustments - Perfect backgrounds for mobile */
+  body {
+    font-size: 14px;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: scroll !important;
+    background-repeat: no-repeat !important;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  html {
+    height: -webkit-fill-available;
+  }
+
+  /* Background layers - optimized for mobile */
+  .page-bg-layer {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .page-bg-layer::after {
+    background: rgba(8, 10, 14, 0.04);
+  }
+
+  /* Logo pill - Compact but visible like desktop */
+  .logo.logo-pill {
+    height: 52px !important;
+    padding: 6px 10px !important;
+    top: 0;
+    left: 0 !important;
+    border-radius: 0 0 10px 0 !important;
+  }
+
+  .logo.logo-pill .logo-img {
+    max-height: 38px !important;
+  }
+
+  .logo-divider {
+    height: 34px;
+  }
+
+  .logo-menu {
+    font-size: 10px;
+    padding: 4px 6px;
+    gap: 5px;
+  }
+
+  .logo-hamburger span {
+    width: 16px;
+    height: 2px;
+  }
+
+  /* Icons section - KEEP AT BOTTOM, no background */
+  .icons-section {
+    position: fixed !important;
+    bottom: 20px !important;
+    top: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    z-index: 98 !important;
+    width: auto !important;
+    max-width: 95%;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+    pointer-events: auto !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .icons-section.icons-hidden {
+    opacity: 0 !important;
+    transform: translateX(-50%) translateY(60px) !important;
+    pointer-events: none !important;
+  }
+
+  .icons-section.icons-reveal {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  /* Icon items - Visible with labels like desktop */
+  .icon-item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .icon-box::after {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* HIDE labels on mobile */
+  .icon-label {
+    display: none !important;
+  }
+
+  /* Hero wrapper - Same layout as desktop */
+  .hero-wrapper {
+    gap: 14px;
+    padding: 10px !important;
+    max-width: 100%;
+    padding-bottom: 20px !important;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-img {
+    width: 280px;
+    max-width: 70%;
+    margin: 0 auto 16px;
+  }
+
+  /* Hero tagline - Readable size */
+  .hero-tagline {
+    font-size: 20px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+    padding: 0 15px;
+  }
+
+  /* Watch button - Same style as desktop */
+  .watch-btn {
+    padding: 10px 28px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  /* Down arrow */
+  .down-wrap {
+    margin-top: 10px;
+  }
+
+  .down-wrap i {
+    font-size: 36px;
+  }
+
+  /* Stage overlay adjustments */
+  .stage-inner {
+    width: calc(100% - 30px);
+    padding: 20px;
+  }
+
+  .stage-icon-wrap {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 18px;
+  }
+
+  .stage-icon {
+    font-size: 65px;
+  }
+
+  .stage-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .stage-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .stage-cta {
+    padding: 11px 26px;
+    font-size: 14px;
+  }
+
+  /* Footer adjustments */
+  .main-footer {
+    padding: 30px 0 15px;
+  }
+
+  .footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-column p {
+    font-size: 12px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    gap: 12px;
+  }
+
+  /* Sidebar adjustments for mobile */
+  .inceptionhub-sidebar {
+    width: 85vw;
+    max-width: 320px;
+  }
+
+  .inceptionhub-sidebar .menu-header-wrapper .logo-img {
+    max-height: 44px;
+  }
+
+  /* Page progress bar */
+  .page-progress {
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 4px;
+    z-index: 100 !important;
+    border-radius: 0px;
+    pointer-events: none;
+  }
+
+  /* Scroll panels - Ensure they're scrollable */
+  .scroll-panels {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  .icon-scroll-panel {
+    min-height: 120vh;
+    position: relative;
+    display: block;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  /* Ensure body scrolling works */
+  body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: manipulation !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  html {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+  }
+}
+
+/* Medium devices (tablets, 601px to 900px) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Logo pill - Slightly smaller */
+  .logo.logo-pill {
+    height: 56px !important;
+    padding: 7px 12px !important;
+  }
+
+  .logo.logo-pill .logo-img {
+    max-height: 42px !important;
+  }
+
+  /* Icons section - Adjust spacing */
+  .icons-section {
+    gap: 24px;
+  }
+
+  .icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-label {
+    font-size: 11px;
+  }
+
+  /* Hero content - Medium sizing */
+  .hero-img {
+    max-width: 65%;
+    margin: 0 auto 16px;
+  }
+
+  .hero-tagline {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .watch-btn {
+    padding: 11px 28px;
+    font-size: 14px;
+  }
+
+  /* Footer adjustments */
+  .main-footer {
+    padding: 30px 0 15px;
+  }
+
+  .footer-column h3 {
+    font-size: 16px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+  }
+
+  .social-link {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Large devices (desktops, 901px and up) */
+@media only screen and (min-width: 901px) {
+  body {
+    font-size: 16px;
+  }
+
+  .logo.logo-pill {
+    height: 64px !important;
+  }
+
+  .hero-img {
+    width: 520px;
+  }
+
+  .hero-tagline {
+    font-size: 32px;
+  }
+
+  .watch-btn {
+    padding: 12px 34px;
+    font-size: 15px;
+  }
+}
