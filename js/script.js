@@ -343,7 +343,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (heroWrapper) heroWrapper.classList.remove("stage-muted");
       if (stageIcon) stageIcon.classList.remove("revealed");
       if (stageCta) stageCta.classList.remove("revealed");
-      if (footer) footer.classList.add("footer-visible");
+      if (footer) {
+        footer.classList.add("footer-visible");
+        // Enable scrolling within footer on mobile
+        footer.style.touchAction = "pan-y";
+        footer.style.overflowY = "auto";
+      }
     } else {
       heroWrapper && heroWrapper.classList.remove("stage-muted");
       if (stageIcon) stageIcon.classList.remove("revealed");
@@ -371,6 +376,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (stage.type === "footer") {
       isAnimatingScroll = true;
+      // Enable scrolling inside footer on mobile
+      document.body.style.overflow = "auto";
+      document.body.style.touchAction = "pan-y";
+      document.documentElement.style.overflow = "auto";
       setTimeout(() => {
         isAnimatingScroll = false;
       }, SCROLL_LOCK_TIME);
