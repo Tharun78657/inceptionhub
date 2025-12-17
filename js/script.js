@@ -529,6 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sidebar && sidebar.classList.contains("open")) return;
 
     const target = e.target;
+    // Don't track touch events on interactive elements (except footer - we handle that specially)
     if (
       target &&
       (target.closest(".icon-item") ||
@@ -537,8 +538,7 @@ document.addEventListener("DOMContentLoaded", function () {
         target.closest("a") ||
         target.closest("button") ||
         target.closest(".inceptionhub-sidebar") ||
-        target.closest(".page-progress") ||
-        target.closest(".main-footer"))
+        target.closest(".page-progress"))
     ) {
       return;
     }
@@ -581,22 +581,49 @@ document.addEventListener("DOMContentLoaded", function () {
       const swipeDistanceX = Math.abs(touchStartX - touchEndX);
       const swipeTime = touchEndTime - touchStartTime;
 
+      // Check if we're on the footer
+      const isOnFooter = target && target.closest(".main-footer");
+      const stage = stageConfigs[currentStage];
+      const isFooterStage = stage && stage.type === "footer";
+
       if (
         Math.abs(swipeDistanceY) >= MIN_SWIPE_DISTANCE &&
         swipeTime <= MAX_SWIPE_TIME &&
         swipeDistanceX < MAX_HORIZONTAL_SWIPE
       ) {
-        e.preventDefault();
-        e.stopPropagation();
-
         if (swipeDistanceY > 0) {
+          // Swipe up (scroll down / go to next stage)
+          // If on footer, allow scrolling within footer (don't navigate)
+          if (isOnFooter || isFooterStage) {
+            return; // Let native scroll handle it
+          }
           const nextStage = Math.min(TOTAL_STAGES - 1, currentStage + 1);
           if (nextStage !== currentStage) {
+            e.preventDefault();
+            e.stopPropagation();
             goToStage(nextStage, { animateScroll: true, fromUserScroll: true });
           }
         } else {
+          // Swipe down (scroll up / go to previous stage)
+          // On footer, check if we're at the top of footer scroll before navigating back
+          if (isOnFooter || isFooterStage) {
+            const footer = document.querySelector(".main-footer");
+            // Only navigate back if footer is scrolled to the top
+            if (footer && footer.scrollTop <= 5) {
+              e.preventDefault();
+              e.stopPropagation();
+              const prevStage = Math.max(0, currentStage - 1);
+              if (prevStage !== currentStage) {
+                goToStage(prevStage, { animateScroll: true, fromUserScroll: true });
+              }
+            }
+            // Otherwise let native scroll handle it
+            return;
+          }
           const prevStage = Math.max(0, currentStage - 1);
           if (prevStage !== currentStage) {
+            e.preventDefault();
+            e.stopPropagation();
             goToStage(prevStage, { animateScroll: true, fromUserScroll: true });
           }
         }
