@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
     <style>
         :root {
             /* InceptionHub Brand Colors */
@@ -138,12 +139,55 @@
             color: var(--primary);
         }
 
+        /* Hero Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Hero Section */
         .hero {
-            padding: 140px 0 100px;
-            background: var(--gradient-primary);
+            padding: 200px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8ecf1 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        .hero .container {
+            max-width: 100%;
+            padding: 0 40px 0 0;
+            margin-left: -60px;
         }
 
         .hero::before {
@@ -153,25 +197,32 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
+            background: radial-gradient(ellipse at top right, rgba(10, 46, 92, 0.03) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             gap: 60px;
-            align-items: center;
             position: relative;
             z-index: 1;
         }
 
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
         .hero-text h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 800;
-            color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 20px;
+            color: var(--primary);
+            line-height: 1.15;
+            margin-bottom: 16px;
+            text-align: left;
         }
 
         .hero-text h1 span {
@@ -179,16 +230,20 @@
         }
 
         .hero-text p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 32px;
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 24px;
             line-height: 1.7;
+            text-align: left;
         }
 
         .hero-stats {
             display: flex;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 32px;
+            margin-top: 28px;
+            justify-content: flex-start;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
         }
 
         .stat-item {
@@ -196,64 +251,70 @@
         }
 
         .stat-number {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--accent);
         }
 
         .stat-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            color: var(--gray-600);
             margin-top: 4px;
         }
 
         .hero-form {
-            background: var(--white);
+            background: var(--gradient-primary);
             border-radius: var(--radius-lg);
-            padding: 40px;
+            padding: 20px 28px;
             box-shadow: var(--shadow-xl);
+            width: 500px;
+            flex-shrink: 0;
+            margin-right: -120px;
+            animation: slideInRight 0.8s ease-out 0.2s forwards;
+            opacity: 0;
         }
 
         .hero-form h3 {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 8px;
+            color: var(--white);
+            margin-bottom: 4px;
         }
 
         .hero-form p {
-            color: var(--gray-600);
-            margin-bottom: 24px;
-            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 14px;
+            font-size: 13px;
         }
 
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
         .form-input {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--gray-200);
-            border-radius: 10px;
-            font-size: 15px;
+            padding: 10px 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 13px;
             transition: border-color 0.2s, box-shadow 0.2s;
             font-family: inherit;
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(241, 90, 58, 0.1);
+            box-shadow: 0 0 0 3px rgba(241, 90, 58, 0.2);
         }
 
         .form-select {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--gray-200);
-            border-radius: 10px;
-            font-size: 15px;
-            background: var(--white);
+            padding: 10px 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 13px;
+            background: rgba(255, 255, 255, 0.95);
             cursor: pointer;
             font-family: inherit;
         }
@@ -636,20 +697,63 @@
             }
 
             .hero {
-                padding: 120px 0 80px;
+                padding: 100px 0 60px;
+            }
+
+            .hero .container {
+                max-width: 100%;
+                padding: 0 20px !important;
+                margin-left: 0 !important;
             }
 
             .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+                flex-direction: column;
+                gap: 30px;
+                align-items: stretch;
+            }
+
+            .hero-text {
+                max-width: 100%;
             }
 
             .hero-text h1 {
-                font-size: 36px;
+                font-size: 32px !important;
+                text-align: center !important;
+                line-height: 1.2;
+            }
+
+            .hero-text p {
+                text-align: center !important;
+                font-size: 15px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+                justify-content: center !important;
+                flex-wrap: wrap;
+            }
+
+            .stat-item {
+                text-align: center !important;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .stat-label {
+                font-size: 12px;
+            }
+
+            .hero-form {
+                width: 100% !important;
+                max-width: 100%;
+                margin-right: 0 !important;
+                padding: 20px !important;
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .services-grid {
@@ -671,29 +775,101 @@
                 gap: 16px;
                 text-align: center;
             }
+
+            /* Hide WhatsApp float on mobile */
+            .whatsapp-float {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 90px 0 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 26px !important;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .hero-form {
+                padding: 18px !important;
+            }
+
+            .hero-form h3 {
+                font-size: 16px;
+            }
+
+            .form-input,
+            .form-select {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .btn-primary {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .stat-number {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">
-                <img src="../images/logo.png" alt="InceptionHub">
-            </a>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="Registration.html" class="nav-link">Registration</a>
-                <a href="LegalRegistration.html" class="nav-link">Legal</a>
-                <a href="OnlinePresence.html" class="nav-link">Online Presence</a>
-                <a href="BusinessOperations.html" class="nav-link">Operations</a>
-                <a href="Compliances.html" class="nav-link">Compliances</a>
-                <a href="#contact" class="nav-cta">Get Started</a>
+    <!-- TOP LEFT LOGO -->
+    <div class="logo logo-pill">
+        <a href="../index.html" style="display:flex;align-items:center;">
+            <img src="../images/logo.png" class="logo-img" alt="InceptionHub">
+        </a>
+        <span class="logo-divider" aria-hidden="true"></span>
+        <button class="logo-menu" aria-label="Open menu">
+            <span class="logo-hamburger" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- TOP ICONS -->
+    <div class="icons-section">
+        <a href="Registration.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#0A2E5C 0%,#1a4a7a 100%)">
+                <i class="fas fa-handshake" style="font-size:28px;color:#fff;"></i>
             </div>
-            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-        </div>
-    </nav>
+            <div class="icon-label">Registration</div>
+        </a>
+        <a href="LegalRegistration.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#F15A3A 0%,#e74c3c 100%)">
+                <i class="fas fa-file-lines" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Legal Registration</div>
+        </a>
+        <a href="OnlinePresence.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%)">
+                <i class="fas fa-laptop-code" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Online Presence</div>
+        </a>
+        <a href="BusinessOperations.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#27ae60 0%,#2ecc71 100%)">
+                <i class="fas fa-chart-line" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Business Operations</div>
+        </a>
+        <a href="Compliances.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#e67e22 0%,#f39c12 100%)">
+                <i class="fas fa-clipboard-check" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Compliances</div>
+        </a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="contact">
@@ -979,6 +1155,134 @@
         </div>
     </footer>
 
+    <!-- Callback Success Popup Modal - Minimal -->
+    <div class="callback-modal-overlay" id="callbackModal">
+        <div class="callback-modal">
+            <button class="modal-close-btn" id="modalCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-check">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="modal-title">Request Received!</h3>
+            <p class="modal-message">Thanks <span id="modalUserName">there</span>! We'll call you within 24 hours.</p>
+            <button class="modal-done-btn" id="modalDoneBtn">Got It</button>
+        </div>
+    </div>
+
+    <style>
+        /* Minimal Callback Modal */
+        .callback-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .callback-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .callback-modal {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 32px;
+            max-width: 320px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(0.9);
+            transition: transform 0.25s ease;
+        }
+
+        .callback-modal-overlay.active .callback-modal {
+            transform: scale(1);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: #f1f5f9;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .modal-check {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .modal-check i {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0A2E5C;
+            margin-bottom: 8px;
+        }
+
+        .modal-message {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .modal-message span {
+            font-weight: 600;
+            color: #F15A3A;
+        }
+
+        .modal-done-btn {
+            background: linear-gradient(135deg, #F15A3A 0%, #e04527 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 36px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-done-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(241, 90, 58, 0.35);
+        }
+    </style>
+
     <!-- WhatsApp Float -->
     <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -1024,6 +1328,227 @@
                 nav.style.boxShadow = 'none';
             }
         });
+
+        // === Callback Form Modal Handler ===
+        (function () {
+            const modal = document.getElementById('callbackModal');
+            const modalCloseBtn = document.getElementById('modalCloseBtn');
+            const modalDoneBtn = document.getElementById('modalDoneBtn');
+            const modalUserName = document.getElementById('modalUserName');
+            const heroForm = document.querySelector('.hero-form form');
+
+            if (!modal || !heroForm) return;
+
+            // Show Modal
+            function showModal(userName) {
+                if (modalUserName && userName) {
+                    modalUserName.textContent = userName;
+                }
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Hide Modal
+            function hideModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Form Submit Handler
+            heroForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get the user's name from the form
+                const nameInput = heroForm.querySelector('input[type="text"]');
+                const userName = nameInput ? nameInput.value.trim() : 'Valued Customer';
+
+                // Show the success modal
+                showModal(userName);
+
+                // Reset the form
+                heroForm.reset();
+            });
+
+            // Close modal on close button click
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', hideModal);
+            }
+
+            // Close modal on done button click
+            if (modalDoneBtn) {
+                modalDoneBtn.addEventListener('click', hideModal);
+            }
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    hideModal();
+                }
+            });
+        })();
+    </script>
+
+
+    <!-- Logo and Icons Animation Script -->
+    <script>
+        (function () {
+            const logo = document.querySelector('.logo.logo-pill');
+            const iconsSection = document.querySelector('.icons-section');
+
+            if (logo) {
+                logo.classList.add('no-transition');
+                logo.classList.add('logo-hidden');
+                void logo.offsetWidth;
+
+                setTimeout(() => {
+                    logo.classList.remove('no-transition');
+                    void logo.offsetWidth;
+                    logo.classList.remove('logo-hidden');
+                    logo.classList.add('logo-reveal');
+                }, 100);
+            }
+
+            if (iconsSection) {
+                iconsSection.classList.add('icons-no-transition');
+                iconsSection.classList.add('icons-hidden');
+                void iconsSection.offsetWidth;
+
+                setTimeout(() => {
+                    iconsSection.classList.remove('icons-no-transition');
+                    void iconsSection.offsetWidth;
+                    iconsSection.classList.remove('icons-hidden');
+                    iconsSection.classList.add('icons-reveal');
+                }, 400);
+            }
+        })();
+    </script>
+
+    <!-- Sidebar Menu Script -->
+    <script>
+        (function () {
+            "use strict";
+            const menuButton = document.querySelector(".logo.logo-pill .logo-menu");
+            if (!menuButton) return;
+            if (menuButton.__inceptionhub_menu_installed) return;
+            menuButton.__inceptionhub_menu_installed = true;
+
+            let overlay = document.querySelector(".inceptionhub-overlay");
+            if (!overlay) {
+                overlay = document.createElement("div");
+                overlay.className = "inceptionhub-overlay";
+                overlay.setAttribute("aria-hidden", "true");
+                overlay.tabIndex = -1;
+                document.body.appendChild(overlay);
+            }
+
+            let sidebar = document.querySelector(".inceptionhub-sidebar");
+            if (!sidebar) {
+                sidebar = document.createElement("aside");
+                sidebar.className = "inceptionhub-sidebar";
+                sidebar.setAttribute("role", "dialog");
+                sidebar.setAttribute("aria-modal", "true");
+                sidebar.setAttribute("aria-label", "Main menu");
+
+                const logoImg = document.querySelector(".logo.logo-pill .logo-img");
+                const logoSrc = logoImg ? logoImg.src : "../images/logo.png";
+                const homePath = "../index.html";
+                const navItems = [
+                    { label: "Home", path: homePath },
+                    { label: "Registration", path: "Registration.html" },
+                    { label: "Legal Registration", path: "LegalRegistration.html" },
+                    { label: "Online Presence", path: "OnlinePresence.html" },
+                    { label: "Business Operations", path: "BusinessOperations.html" },
+                    { label: "Compliances", path: "Compliances.html" },
+                ];
+                const navLinks = navItems.map(item => `<a href="${item.path}" class="menu-link">${item.label}</a>`).join("");
+
+                sidebar.innerHTML = `
+                    <div class="menu-header-wrapper">
+                        <img src="${logoSrc}" alt="InceptionHub" class="logo-img">
+                        <span class="logo-divider" aria-hidden="true"></span>
+                        <button class="menu-close-btn" aria-label="Close menu"></button>
+                    </div>
+                    <nav role="navigation" aria-label="Primary">${navLinks}</nav>
+                    <div class="menu-footer">Need help? <a href="${homePath}#contact">Contact us</a></div>
+                `;
+                document.body.appendChild(sidebar);
+            }
+
+            const closeBtn = sidebar.querySelector(".menu-close-btn");
+
+            function openMenu() {
+                overlay.classList.add("open");
+                sidebar.classList.add("open");
+                menuButton.classList.add("open");
+                document.documentElement.style.overflow = "hidden";
+            }
+
+            function closeMenu() {
+                overlay.classList.remove("open");
+                sidebar.classList.remove("open");
+                menuButton.classList.remove("open");
+                document.documentElement.style.overflow = "";
+            }
+
+            menuButton.addEventListener("click", (e) => { e.preventDefault(); sidebar.classList.contains("open") ? closeMenu() : openMenu(); });
+            overlay.addEventListener("click", closeMenu);
+            if (closeBtn) closeBtn.addEventListener("click", (e) => { e.preventDefault(); closeMenu(); });
+        })();
+    </script>
+
+    <!-- Scroll Animation for Icons -->
+    <style>
+        /* Override existing icons-section for scroll animation */
+        .icons-section.scroll-hidden {
+            opacity: 0 !important;
+            transform: translateY(-40px) !important;
+            pointer-events: none !important;
+            transition: opacity 0.5s ease, transform 0.5s ease !important;
+        }
+    </style>
+
+    <script>
+        (function () {
+            const iconsSection = document.querySelector('.icons-section');
+
+            if (!iconsSection) return;
+
+            let ticking = false;
+
+            function updateIconsVisibility() {
+                const currentScrollY = window.scrollY;
+                const scrollThreshold = 300; // Trigger after scrolling 300px down
+
+                // Hide icons when scrolling DOWN past threshold
+                // Show icons when scrolling UP back to top
+                if (currentScrollY > scrollThreshold) {
+                    iconsSection.classList.add('scroll-hidden');
+                } else {
+                    iconsSection.classList.remove('scroll-hidden');
+                }
+
+                ticking = false;
+            }
+
+            function requestTick() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateIconsVisibility);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', requestTick, { passive: true });
+
+            // Initial check
+            updateIconsVisibility();
+        })();
     </script>
 </body>
 
