@@ -383,7 +383,7 @@ body {
 }
 
 .watch-btn {
-  background: #f5a623;
+  background: #F15A3A;
   color: #fff;
   border: none;
   padding: 12px 34px;
@@ -391,7 +391,7 @@ body {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 26px rgba(245, 166, 35, 0.18);
+  box-shadow: 0 10px 26px rgba(241, 90, 58, 0.18);
   opacity: 1;
   transform: translateY(0);
   transition: opacity 1.35s cubic-bezier(0.16, 0.84, 0.44, 1),
@@ -413,7 +413,7 @@ body {
 }
 
 .watch-btn:hover {
-  background: #ef9710;
+  background: #e74c3c;
 }
 
 /* --------------------------------------------------
@@ -612,14 +612,14 @@ body {
 }
 
 .stage-cta {
-  background: #f5a623;
+  background: #F15A3A;
   color: #fff;
   border: none;
   padding: 12px 32px;
   border-radius: 32px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
+  box-shadow: 0 12px 28px rgba(241, 90, 58, 0.35);
   margin-top: 12px;
   transform: translateY(60px);
   opacity: 0;
@@ -634,8 +634,8 @@ body {
 
 .stage-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(245, 166, 35, 0.45);
-  background: #ef9710;
+  box-shadow: 0 16px 36px rgba(241, 90, 58, 0.45);
+  background: #e74c3c;
 }
 
 .stage-cta.revealed {
@@ -644,14 +644,14 @@ body {
 }
 
 .stage-btn {
-  background: #f5a623;
+  background: #F15A3A;
   color: #fff;
   border: none;
   padding: 12px 32px;
   border-radius: 32px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
+  box-shadow: 0 12px 28px rgba(241, 90, 58, 0.35);
   margin-top: 12px;
   transform: translateY(60px);
   opacity: 0;
@@ -666,8 +666,8 @@ body {
 
 .stage-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(245, 166, 35, 0.45);
-  background: #ef9710;
+  box-shadow: 0 16px 36px rgba(241, 90, 58, 0.45);
+  background: #e74c3c;
 }
 
 .stage-overlay.active .stage-btn {
