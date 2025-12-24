@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       type: "footer",
-      bg: 'url("images/5.0.svg")',
+      bg: 'url("images/last1.png")',
     },
   ];
 
