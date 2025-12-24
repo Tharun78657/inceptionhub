@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const stageConfigs = [
     {
       type: "hero",
-      bg: 'url("images/BG.png")',
+      bg: 'url("images/0..1.png")',
     },
     {
       type: "icon",
       iconIndex: 0,
-      bg: 'url("images/index0.png")',
+      bg: 'url("images/0.2.png")',
       title: "Registration",
       text: "Secure your business identity with effortless registration support.",
       cta: "Start Registration",
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 1,
-      bg: 'url("images/index1.png")',
+      bg: 'url("images/stage2.png")',
       title: "Legal Registration",
       text: "Stay compliant with expert-backed legal filings and approvals.",
       cta: "Begin Legal Setup",
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 2,
-      bg: 'url("images/index2.png")',
+      bg: 'url("images/0.3.png")',
       title: "Online Presence",
       text: "Launch your digital footprint with branded sites and assets.",
       cta: "Build Presence",
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 3,
-      bg: 'url("images/index3.png")',
+      bg: 'url("images/stage5.png")',
       title: "Business Operations",
       text: "Optimize daily operations with streamlined processes and tools.",
       cta: "Improve Operations",
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 4,
-      bg: 'url("images/index4.png")',
+      bg: 'url("images/last1.png")',
       title: "Compliances",
       text: "Keep your organisation audit-ready with proactive compliance care.",
       cta: "Stay Compliant",
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       type: "footer",
-      bg: 'url("images/index4.png")',
+      bg: 'url("images/5.0.svg")',
     },
   ];
 

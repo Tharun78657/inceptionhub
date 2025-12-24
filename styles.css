@@ -547,8 +547,9 @@ body {
   position: fixed;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 120px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
@@ -1538,6 +1539,10 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
   }
 
   /* Stage overlay adjustments */
+  .stage-overlay {
+    padding-top: 90px;
+  }
+
   .stage-inner {
     width: calc(100% - 30px);
     padding: 20px;
