@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 3,
-      bg: 'url("images/stage5.png")',
+      bg: 'url("images/qw.png")',
       title: "Business Operations",
       text: "Optimize daily operations with streamlined processes and tools.",
       cta: "Improve Operations",
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 4,
-      bg: 'url("images/last1.png")',
+      bg: 'url("images/qa.png")',
       title: "Compliances",
       text: "Keep your organisation audit-ready with proactive compliance care.",
       cta: "Stay Compliant",
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       type: "footer",
-      bg: 'url("images/last1.png")',
+      bg: 'url("images/qa.png")',
     },
   ];
 
