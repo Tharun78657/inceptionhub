@@ -16,6 +16,38 @@
     <img src="images/logo.png" alt="InceptionHub" class="splash-logo">
   </div>
 
+  <!-- BACKGROUND VIDEO LEFT -->
+  <video id="background-video" autoplay loop muted playsinline>
+    <source src="images/12er.mp4" type="video/mp4">
+  </video>
+
+  <!-- BACKGROUND VIDEO RIGHT -->
+  <video id="background-video-right" autoplay loop muted playsinline>
+    <source src="images/12er.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    // Reset videos to start on every page load
+    (function () {
+      const video = document.getElementById('background-video');
+      const videoRight = document.getElementById('background-video-right');
+
+      if (video) {
+        video.currentTime = 0;
+        video.play().catch(function (error) {
+          console.log('Video autoplay prevented:', error);
+        });
+      }
+
+      if (videoRight) {
+        videoRight.currentTime = 0;
+        videoRight.play().catch(function (error) {
+          console.log('Video right autoplay prevented:', error);
+        });
+      }
+    })();
+  </script>
+
   <!-- TOP LEFT LOGO -->
   <!-- REPLACE the existing .logo block with this -->
   <div class="logo logo-pill ">
@@ -42,7 +74,7 @@
     <!-- 1 - Registration (Company Formation, Incorporation) -->
     <a href="Pages/Registration.html" class="icon-item" style="text-decoration:none;">
       <div class="icon-box" style="background:linear-gradient(135deg,#0A2E5C 0%,#1a4a7a 100%)">
-        <i class="fas fa-handshake" style="font-size:28px;color:#fff;"></i>
+        <i class="fas fa-handshake" style="font-size:36px;color:#fff;"></i>
       </div>
       <div class="icon-label">Registration</div>
     </a>
@@ -50,7 +82,7 @@
     <!-- 2 - Legal Registration (GST, FSSAI, Licenses, Trademark) -->
     <a href="Pages/LegalRegistration.html" class="icon-item" style="text-decoration:none;">
       <div class="icon-box" style="background:linear-gradient(135deg,#F15A3A 0%,#e74c3c 100%)">
-        <i class="fas fa-file-lines" style="font-size:28px;color:#fff;"></i>
+        <i class="fas fa-file-lines" style="font-size:36px;color:#fff;"></i>
       </div>
       <div class="icon-label">Legal Registration</div>
     </a>
@@ -58,7 +90,7 @@
     <!-- 3 - Online Presence (Website, SEO, Digital Branding) -->
     <a href="Pages/OnlinePresence.html" class="icon-item" style="text-decoration:none;">
       <div class="icon-box" style="background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%)">
-        <i class="fas fa-laptop-code" style="font-size:28px;color:#fff;"></i>
+        <i class="fas fa-laptop-code" style="font-size:36px;color:#fff;"></i>
       </div>
       <div class="icon-label">Online Presence</div>
     </a>
@@ -66,7 +98,7 @@
     <!-- 4 - Business Operations (Accounting, Payroll, HR, Consulting) -->
     <a href="Pages/BusinessOperations.html" class="icon-item" style="text-decoration:none;">
       <div class="icon-box" style="background:linear-gradient(135deg,#27ae60 0%,#2ecc71 100%)">
-        <i class="fas fa-chart-line" style="font-size:28px;color:#fff;"></i>
+        <i class="fas fa-chart-line" style="font-size:36px;color:#fff;"></i>
       </div>
       <div class="icon-label">Business Operations</div>
     </a>
@@ -74,7 +106,7 @@
     <!-- 5 - Compliances (ROC, GST Returns, ITR, TDS) -->
     <a href="Pages/Compliances.html" class="icon-item" style="text-decoration:none;">
       <div class="icon-box" style="background:linear-gradient(135deg,#e67e22 0%,#f39c12 100%)">
-        <i class="fas fa-clipboard-check" style="font-size:28px;color:#fff;"></i>
+        <i class="fas fa-clipboard-check" style="font-size:36px;color:#fff;"></i>
       </div>
       <div class="icon-label">Compliances</div>
     </a>
@@ -86,7 +118,15 @@
     <div class="hero-content">
       <img src="images/logo.png" alt="Hero Logo" class="hero-img">
       <h2 class="hero-tagline">Transforming Your Ideas Into Reality </h2>
-      <button class="watch-btn" type="button">Watch Video</button>
+      <div class="hero-btn-container">
+        <video class="mobile-btn-video" autoplay loop muted playsinline>
+          <source src="images/12er.mp4" type="video/mp4">
+        </video>
+        <button class="watch-btn" type="button">Watch Video</button>
+        <video class="mobile-btn-video mirror" autoplay loop muted playsinline>
+          <source src="images/12er.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
     <!-- DOWN ARROW -->
@@ -141,21 +181,14 @@
             <li><a href="Pages/BusinessOperations.html">Business Operations</a></li>
           </ul>
         </div>
-        <div class="footer-column">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
+
         <div class="footer-column">
           <h4>Contact</h4>
           <ul class="footer-links">
-            <li><a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
-            <li><a href="mailto:contact@inceptionhub.com"><i class="fas fa-envelope"></i> contact@inceptionhub.com</a>
-            </li>
+            <li><a href="tel:+919052213212"><i class="fas fa-phone"></i> +91 90522 13212</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Flat No 202, 2nd Floor, Satyabama Complex, Opposite
+                Sai
+                Baba Temple, Bhagya Nagar Colony, Kukatpally, Hyderabad, Telangana 500072, India.</a></li>
           </ul>
         </div>
       </div>
@@ -168,6 +201,42 @@
         </div>
       </div>
     </div>
+    <div class="video-modal" id="video-modal">
+      <div class="modal-content">
+        <button class="close-modal" id="close-modal">&times;</button>
+        <video src="images/12er.mp4" class="modal-video" controls id="modal-player"></video>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById('video-modal');
+        const watchBtn = document.querySelector('.watch-btn');
+        const closeBtn = document.getElementById('close-modal');
+        const player = document.getElementById('modal-player');
+
+        if (watchBtn && modal) {
+          watchBtn.addEventListener('click', function () {
+            modal.classList.add('active');
+            player.play();
+          });
+        }
+
+        if (closeBtn && modal) {
+          closeBtn.addEventListener('click', function () {
+            modal.classList.remove('active');
+            player.pause();
+            player.currentTime = 0;
+          });
+        }
+
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            closeBtn.click();
+          }
+        });
+      });
+    </script>
   </footer>
 
   <style>
@@ -200,7 +269,7 @@
 
     .main-footer .footer-content {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 40px;
     }
@@ -390,6 +459,146 @@
         width: 220px;
         max-width: 75%;
       }
+    }
+
+    /* Background Video Styles */
+    #background-video {
+      position: fixed;
+      bottom: -25%;
+      left: -10%;
+      width: 60%;
+      height: auto;
+      z-index: 10;
+      pointer-events: none;
+      object-fit: contain;
+      opacity: 1;
+    }
+
+    /* Background Video Right Styles */
+    #background-video-right {
+      position: fixed;
+      bottom: -25%;
+      right: -10%;
+      width: 60%;
+      height: auto;
+      z-index: 10;
+      pointer-events: none;
+      object-fit: contain;
+      opacity: 1;
+      transform: scaleX(-1);
+      /* Mirror the video horizontally */
+    }
+
+    @media only screen and (max-width: 768px) {
+      #background-video {
+        display: block !important;
+        width: 100vw !important;
+        bottom: -5% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        opacity: 0.9 !important;
+        z-index: 45 !important;
+      }
+
+      #background-video-right {
+        display: none !important;
+      }
+
+      /* Move Icons to top in Index Page & Update Look */
+      .icons-section {
+        top: 72px !important;
+        bottom: auto !important;
+        z-index: 100 !important;
+        background: transparent !important;
+        /* Remove white bg */
+        box-shadow: none !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 5px !important;
+        gap: 12px !important;
+        /* Slightly tighter gap */
+      }
+
+      .icon-box {
+        width: 42px !important;
+        /* Reduced size */
+        height: 42px !important;
+        border-radius: 10px !important;
+        /* Removed background override to let inline colors show */
+      }
+
+      .icon-box i {
+        font-size: 18px !important;
+        /* Smaller icons */
+      }
+
+      .icons-section.icons-hidden {
+        transform: translateX(-50%) translateY(-120px) !important;
+      }
+
+      .icons-section.icons-reveal {
+        transform: translateX(-50%) translateY(0) !important;
+      }
+    }
+
+    /* Video Modal Styles */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 20000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .video-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      animation: modalFadeIn 0.4s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-weight: 300;
+      transition: transform 0.2s ease;
+    }
+
+    .close-modal:hover {
+      transform: scale(1.1);
     }
   </style>
 

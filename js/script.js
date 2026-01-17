@@ -39,12 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const stageConfigs = [
     {
       type: "hero",
-      bg: 'url("images/0..1.png")',
     },
     {
       type: "icon",
       iconIndex: 0,
-      bg: 'url("images/0.2.png")',
       title: "Registration",
       text: "Secure your business identity with effortless registration support.",
       cta: "Start Registration",
@@ -54,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 1,
-      bg: 'url("images/stage2.png")',
       title: "Legal Registration",
       text: "Stay compliant with expert-backed legal filings and approvals.",
       cta: "Begin Legal Setup",
@@ -64,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 2,
-      bg: 'url("images/0.3.png")',
       title: "Online Presence",
       text: "Launch your digital footprint with branded sites and assets.",
       cta: "Build Presence",
@@ -74,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 3,
-      bg: 'url("images/qw.png")',
       title: "Business Operations",
       text: "Optimize daily operations with streamlined processes and tools.",
       cta: "Improve Operations",
@@ -84,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 4,
-      bg: 'url("images/qa.png")',
       title: "Compliances",
       text: "Keep your organisation audit-ready with proactive compliance care.",
       cta: "Stay Compliant",
@@ -93,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       type: "footer",
-      bg: 'url("images/qa.png")',
     },
   ];
 
@@ -198,20 +191,36 @@ document.addEventListener("DOMContentLoaded", function () {
   function playHeroRevealAnimation() {
     const heroTagline = document.querySelector(".hero-tagline");
     const watchBtn = document.querySelector(".watch-btn");
+    const mobileVideos = document.querySelectorAll(".mobile-btn-video");
     if (!heroTagline || !watchBtn) return;
 
     heroTagline.classList.add("no-transition");
     watchBtn.classList.add("no-transition");
+    mobileVideos.forEach(v => v.classList.add("no-transition"));
+
     heroTagline.classList.remove("hero-revealed");
     watchBtn.classList.remove("hero-revealed");
+    mobileVideos.forEach(v => {
+      v.classList.remove("hero-revealed");
+      v.style.opacity = "0"; // Ensure they start hidden
+      v.style.transform = "translateY(20px)";
+    });
+
     void heroTagline.offsetWidth;
     void watchBtn.offsetWidth;
 
     heroTagline.classList.remove("no-transition");
     watchBtn.classList.remove("no-transition");
+    mobileVideos.forEach(v => v.classList.remove("no-transition"));
+
     requestAnimationFrame(() => {
       heroTagline.classList.add("hero-revealed");
       watchBtn.classList.add("hero-revealed");
+      mobileVideos.forEach(v => {
+        v.classList.add("hero-revealed");
+        v.style.opacity = "1";
+        v.style.transform = v.classList.contains("mirror") ? "translateY(0) scaleX(-1)" : "translateY(0)";
+      });
     });
   }
 

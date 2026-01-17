@@ -27,6 +27,7 @@ body {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, sans-serif;
+  background-color: #FAFAFA;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -51,8 +52,8 @@ body {
 
 .hero-wrapper {
   position: fixed !important;
-  top: 50%;
-  left: 50%;
+  top: 55%;
+  left: 52%;
   transform: translate(-50%, -50%) !important;
   width: 100%;
   max-width: 100%;
@@ -92,14 +93,14 @@ body {
 
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 
-  padding: 8px 14px;
+  padding: 16px 28px;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: 0 6px 18px rgba(6, 20, 40, 0.12);
   border: 1px solid rgba(2, 6, 23, 0.06);
-  height: 64px !important;
+  height: 96px !important;
   transition: transform 1.15s cubic-bezier(0.16, 0.84, 0.44, 1),
     opacity 1.15s ease-out;
   will-change: transform, opacity;
@@ -114,14 +115,14 @@ body {
 
 /* logo image */
 .logo.logo-pill .logo-img {
-  max-height: 48px !important;
+  max-height: 72px !important;
   width: auto;
   object-fit: contain;
 }
 
 .logo-divider {
   width: 1px;
-  height: 44px;
+  height: 68px;
   background: rgba(11, 37, 64, 0.06);
   border-radius: 1px;
 }
@@ -224,13 +225,15 @@ body {
 .icons-section.icons-hidden {
   opacity: 0;
   transform: translateY(-60px);
-  pointer-events: none;
+  pointer-events: none !important;
+  visibility: hidden;
 }
 
 .icons-section.icons-reveal {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto;
+  pointer-events: auto !important;
+  visibility: visible;
 }
 
 .icons-section .icon-item {
@@ -255,9 +258,9 @@ body {
 }
 
 .icon-box {
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -416,6 +419,18 @@ body {
   background: #e74c3c;
 }
 
+.hero-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.mobile-btn-video {
+  display: none;
+}
+
 /* --------------------------------------------------
    DOWN ARROW
 -------------------------------------------------- */
@@ -478,8 +493,9 @@ body {
   z-index: 5;
   pointer-events: none;
   background-position: center center;
-  background-size: cover;
+  background-size: 50%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   opacity: 0;
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-backface-visibility: hidden;
@@ -734,7 +750,7 @@ body {
 }
 
 .icons-section .icon-item {
-  pointer-events: auto !important;
+  pointer-events: inherit;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -859,7 +875,7 @@ body:has(.inceptionhub-sidebar.open) .icon-item:focus .icon-box {
   position: fixed;
   left: 0px !important;
   top: 0 !important;
-  width: 280px;
+  width: 360px;
   max-width: calc(100% - 48px);
   height: 100vh !important;
   background: #0A2E5C;
@@ -1432,10 +1448,10 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
     height: 2px;
   }
 
-  /* Icons section - KEEP AT BOTTOM, no background */
+  /* Icons section - Floating Dock Style */
   .icons-section {
     position: fixed !important;
-    bottom: 20px !important;
+    bottom: 30px !important;
     top: auto !important;
     left: 50% !important;
     right: auto !important;
@@ -1445,52 +1461,64 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
     justify-content: center;
     align-items: center;
     gap: 12px;
-    padding: 10px 15px;
-    z-index: 98 !important;
+    padding: 10px 18px;
+    z-index: 99 !important;
     width: auto !important;
     max-width: 95%;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-radius: 0;
-    box-shadow: none;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
     pointer-events: auto !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible !important;
   }
 
   .icons-section.icons-hidden {
     opacity: 0 !important;
-    transform: translateX(-50%) translateY(60px) !important;
+    transform: translateX(-50%) translateY(80px) !important;
     pointer-events: none !important;
+    visibility: hidden !important;
   }
 
   .icons-section.icons-reveal {
     opacity: 1 !important;
     transform: translateX(-50%) translateY(0) !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
   }
 
-  /* Icon items - Visible with labels like desktop */
+  /* Icon items */
   .icon-item {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 0;
+    transition: transform 0.2s ease !important;
+  }
+
+  .icon-item:active {
+    transform: scale(0.9) !important;
   }
 
   .icon-box {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .icon-box i {
+    font-size: 22px !important;
   }
 
   .icon-box::after {
-    width: 38px;
-    height: 38px;
+    display: none !important;
+    /* Hide the glow ring on mobile for cleaner look */
   }
 
-  /* HIDE labels on mobile */
   .icon-label {
     display: none !important;
   }
@@ -1526,7 +1554,38 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
   .watch-btn {
     padding: 10px 28px;
     font-size: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 0;
+    /* Changed from 16px to 0 for center alignment with videos */
+  }
+
+  .hero-btn-container {
+    gap: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-btn-video {
+    display: none !important;
+  }
+
+  .mobile-btn-video.mirror {
+    transform: scaleX(-1);
+  }
+
+  .hero-wrapper.stage-muted .mobile-btn-video {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .mobile-btn-video.hero-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-btn-video.no-transition {
+    transition: none !important;
   }
 
   /* Down arrow */

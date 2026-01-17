@@ -555,7 +555,7 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
         }
@@ -614,11 +614,13 @@
             color: var(--gray-600);
             text-decoration: none;
             font-size: 15px;
-            transition: color 0.2s;
+            transition: all 0.8s ease;
+            display: inline-block;
         }
 
         .footer-links a:hover {
             color: var(--accent);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -1048,7 +1050,7 @@
                         style="display: inline-flex; align-items: center; gap: 10px; background: #F15A3A; color: #fff; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 20px rgba(241, 90, 58, 0.4);">
                         <i class="fas fa-arrow-right"></i> Get Free Consultation
                     </a>
-                    <a href="https://wa.me/919999999999" target="_blank"
+                    <a href="https://wa.me/919052213212" target="_blank"
                         style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px;">
                         <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                     </a>
@@ -1079,21 +1081,14 @@
                         <li><a href="BusinessOperations.html">Business Operations</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
+
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
-                        <li><a href="mailto:contact@inceptionhub.com"><i class="fas fa-envelope"></i>
-                                contact@inceptionhub.com</a></li>
+                        <li><a href="tel:+919052213212"><i class="fas fa-phone"></i> +91 90522 13212</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Flat No 202, 2nd Floor, Satyabama Complex,
+                                Opposite Sai Baba Temple, Bhagya Nagar Colony, Kukatpally, Hyderabad, Telangana 500072,
+                                India.</a></li>
                     </ul>
                 </div>
             </div>
@@ -1236,7 +1231,7 @@
         }
     </style>
 
-    <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919052213212" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1426,6 +1421,7 @@
             opacity: 0 !important;
             transform: translateY(-40px) !important;
             pointer-events: none !important;
+            visibility: hidden !important;
             transition: opacity 0.5s ease, transform 0.5s ease !important;
         }
     </style>
