@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Registration - InceptionHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* InceptionHub Brand Colors */
+            --primary: #0A2E5C;
+            --primary-light: #1a4a7a;
+            --primary-dark: #061d3a;
+            --accent: #F15A3A;
+            --accent-hover: #d94a2a;
+            --accent-light: #ff7a5a;
+            --white: #ffffff;
+            --light-bg: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --success: #F15A3A;
+            --gradient-primary: linear-gradient(135deg, #0A2E5C 0%, #1a4a7a 100%);
+            --gradient-accent: linear-gradient(135deg, #F15A3A 0%, #d94a2a 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --radius-lg: 20px;
+
+            /* Legacy variables for compatibility */
+            --primary-blue: #0A2E5C;
+            --accent-orange: #F15A3A;
+            --text-gray: #475569;
+            --bg-light: #ffffff;
+            --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #e8ecf1 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--primary-blue);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+        /* --- Custom Navbar Styles --- */
+        @keyframes navbarSlideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .navbar-custom {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: var(--white);
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 340px;
+            justify-content: space-between;
+            /* To space out logo and toggle if needed, or keeping it flex-start */
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1001;
+            opacity: 0;
+            animation: navbarSlideInLeft 0.2s ease-out forwards;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo-img {
+            height: 3.8125rem;
+            /* 45px */
+            width: auto;
+            display: block;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 35px;
+            background-color: #E2E8F0;
+        }
+
+        .nav-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            outline: none;
+            /* Removes focus box */
+            -webkit-tap-highlight-color: transparent;
+            /* Removes tap highlight */
+        }
+
+        .toggle-line {
+            width: 28px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active .toggle-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .nav-toggle.active .toggle-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .nav-toggle.active .toggle-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        @media (max-width: 600px) {
+            .navbar-custom {
+                width: 280px;
+                /* Reduced width */
+                justify-content: space-between;
+                border-bottom-right-radius: 20px;
+                /* Restore aesthetic corner */
+                padding: 8px 15px;
+            }
+
+            .nav-logo-img {
+                height: 38px;
+                /* Reduced from 70px */
+            }
+        }
+
+        /* Icons Section Styles */
+        @keyframes fadeInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Icons Section - Cleaner, Floating Concept matched to image */
+        .icons-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            padding: 10px 30px;
+            gap: 25px;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: fixed;
+            top: 40px;
+            /* Moved down as requested */
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 95%;
+            box-shadow: none;
+            border: none;
+        }
+
+        .icons-section:hover {
+            box-shadow: none;
+            /* No shadow on hover to keep background transparent */
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            /* Reduced gap for tighter integration */
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeInFromTop 0.5s ease-out forwards;
+            outline: none;
+            /* Removes focus box */
+            -webkit-tap-highlight-color: transparent;
+            /* Removes tap highlight */
+        }
+
+        .icon-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            /* color: #0A2540; Navy Blue icons */
+            background: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .icon-box i {
+            font-size: 22px !important;
+            /* Balanced icon size */
+        }
+
+        .icon-label {
+            font-size: 13px;
+            /* Clear legible text like image */
+            font-weight: 800;
+            /* Extra bold like image */
+            color: #0A2540;
+            /* Navy blue labels */
+            white-space: nowrap;
+            letter-spacing: -0.01em;
+            text-transform: capitalize;
+        }
+
+        /* Specific background colors from image - Precision Saturated Palette */
+        .bg-navy {
+            background-color: #1A365D !important;
+        }
+
+        /* Registration */
+        .bg-coral {
+            background-color: #F15A3A !important;
+        }
+
+        /* Legal Registration */
+        .bg-lavender {
+            background-color: #9B5DE5 !important;
+        }
+
+        /* Online Presence */
+        .bg-emerald {
+            background-color: #2ECC71 !important;
+        }
+
+        /* Business Operations */
+        .bg-amber {
+            background-color: #F39C12 !important;
+        }
+
+        /* Compliances */
+
+        @media (max-width: 1100px) {
+            .icons-section {
+                gap: 15px;
+                padding: 8px 20px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .icons-section {
+                display: none;
+                /* Hide standard nav on mobile, use sidebar */
+            }
+        }
+
+        /* Hide icons on scroll */
+        .icons-section.scroll-hidden {
+            opacity: 0 !important;
+            pointer-events: none;
+            transform: translateX(-50%) translateY(-20px);
+        }
+
+        /* Logo and Icons Animations */
+        .logo-hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .logo-reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .icons-hidden {
+            opacity: 0;
+            transform: translateY(-20px) translateX(-50%);
+        }
+
+        .icons-reveal {
+            opacity: 1;
+            transform: translateY(0) translateX(-50%);
+            transition: all 0.5s ease;
+        }
+
+        .scroll-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px) translateX(-50%);
+        }
+
+        /* Sidebar Styles */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 37, 64, 0.5);
+            z-index: 997;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 330px;
+            background: linear-gradient(180deg, #1B4B7A 0%, #090909 100%);
+            z-index: 998;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            height: 100vh;
+        }
+
+        .sidebar-nav.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-content {
+            padding: 100px 0 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 40px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-footer {
+            padding: 20px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-link {
+            display: block;
+            padding: 12px 0;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: 0.2s;
+        }
+
+        .menu-link:hover {
+            color: #FF5733;
+            padding-left: 8px;
+        }
+
+        .menu-footer {
+            margin-top: auto;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .menu-footer a {
+            color: #FF5733;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .icons-section {
+                display: none;
+            }
+
+            .logo.logo-pill {
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+            }
+        }
+
+
+
+        /* Hero Section */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            padding: 220px 0 100px;
+            /* Increased top padding to clear fixed icons */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Space between text and form */
+            gap: 40px;
+            flex-wrap: wrap;
+            background: var(--gradient-hero);
+            width: 100%;
+            position: relative;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 100px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-layout {
+                flex-direction: column;
+                gap: 60px;
+            }
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            opacity: 0;
+            /* Start hidden */
+            animation: fadeInLeft 1s ease-out forwards;
+        }
+
+        .hero-headline {
+            font-size: clamp(28px, 5.5vw, 48px);
+            /* Standardized to 48px desktop */
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--primary-blue);
+        }
+
+        .text-orange {
+            color: var(--accent-orange);
+        }
+
+        .hero-subheadline {
+            font-size: clamp(14px, 2vw, 16px);
+            /* Standardized to 16px desktop */
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: clamp(24px, 4vw, 32px);
+            /* Standardized to 32px desktop */
+            font-weight: 800;
+            color: var(--accent-orange);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: clamp(12px, 1.5vw, 14px);
+            /* Standardized to 14px desktop */
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Form Card */
+        .consultation-card {
+            background-color: #0F3057;
+            /* Slightly richer blue to match image depth */
+            padding: 25px 35px;
+            /* Further reduced padding */
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            color: var(--white);
+            /* border: 1px solid rgba(255,255,255,0.1); */
+            opacity: 0;
+            /* Start hidden */
+            animation: fadeInRight 1s ease-out forwards;
+            animation-delay: 0.3s;
+            /* Slight delay for better effect */
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 15px;
+            /* Further reduced margin */
+        }
+
+        .card-title {
+            font-size: clamp(15px, 2.5vw, 20px);
+            /* Further reduced for mobile */
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-subtitle {
+            font-size: clamp(10px, 1.8vw, 13px);
+            /* Further reduced for mobile */
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            /* Tighter spacing */
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 14px);
+            /* Responsive padding */
+            border-radius: 8px;
+            border: 2px solid transparent;
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(11px, 1.8vw, 13px);
+            /* Further reduced for mobile */
+            color: #333;
+            outline: none;
+            background-color: #F0F4F8;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            background-color: #fff;
+            border-color: var(--accent-orange);
+        }
+
+        .form-select {
+            color: #556987;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 0.65em auto;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px 28px;
+            background-color: #E85C41;
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(232, 92, 65, 0.3);
+        }
+
+        .submit-btn:hover {
+            background-color: #d14d35;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 92, 65, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 140px 0 60px;
+                /* Adjust for mobile */
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .hero-subheadline {
+                margin: 0 auto 30px;
+            }
+
+            .stats-row {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consultation-card {
+                padding: 20px 25px;
+                /* Adjust card padding for mobile */
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+                /* Reduce padding on very small screens */
+            }
+
+            .hero {
+                padding: 120px 0 40px;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .consultation-card {
+                padding: 15px 20px;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+        }
+
+        /* --- Services Section Styles --- */
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background: rgba(241, 90, 58, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .icon-box.orange {
+            background: var(--gradient-accent);
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            color: var(--gray-600);
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        .feature-item i {
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+
+        /* --- How It Works Section Styles --- */
+        .how-it-works-section {
+            width: 100%;
+            padding: 0 0 100px;
+            /* Added 20px horizontal padding to match .container */
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .hiw-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .hiw-image-container {
+            flex: 1;
+            max-width: 540px;
+            /* Balanced with cards */
+            position: -webkit-sticky;
+            position: sticky;
+            top: 120px;
+            height: 480px;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 1100px) {
+            .hiw-content {
+                gap: 30px;
+            }
+        }
+
+        .hiw-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Stack Cards Styles */
+        .stack-cards {
+            --stack-cards-item-ratio: 16/9;
+            /* Aspect ratio */
+            list-style: none;
+            width: 100%;
+            max-width: 540px;
+            /* Slightly reduced to give image more room */
+            padding: 0;
+            flex-shrink: 0;
+            /* Don't shrink cards */
+        }
+
+        .stack-cards__item {
+            position: relative;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 100px;
+            /* Base top */
+            height: 0;
+            padding-bottom: calc(100%/(var(--stack-cards-item-ratio)));
+            transform-origin: center top;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.02);
+            border-radius: 24px;
+            overflow: hidden;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Continuous Sticky Offsets for "Exact Overlap" Effect */
+        .stack-cards__item:nth-child(1) {
+            top: 120px;
+        }
+
+        .stack-cards__item:nth-child(2) {
+            top: 120px;
+        }
+
+        .stack-cards__item:nth-child(3) {
+            top: 120px;
+        }
+
+        .stack-cards__item:nth-child(4) {
+            top: 120px;
+        }
+
+        /* Updated Stack Cards Design */
+        .stack-cards__item>.card-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Alignment from image */
+            justify-content: flex-start;
+            padding: 40px;
+            background-color: #F8F9FA !important;
+            /* Light white background */
+            border: 1px solid #E1E8EE;
+            /* Subtle border */
+            border-radius: 12px;
+            text-align: left;
+            /* Alignment from image */
+        }
+
+        .card-content-box {
+            text-align: left;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Alignment from image */
+        }
+
+        .card-text-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Hide old step number pill if we are replacing with icon */
+        .step-number {
+            display: none;
+        }
+
+        /* New Icon Circle Style */
+        .card-icon-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #0A2540;
+            /* Dark Navy */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .card-title-hiw {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            /* Bold */
+            color: #000000;
+            /* Black title */
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            color: #1a1a1a;
+            /* Darker text */
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        @media (max-width: 900px) {
+            .hiw-content {
+                flex-direction: column-reverse;
+                /* Cards first, then image */
+            }
+
+            .hiw-image-container {
+                position: relative;
+                top: 0;
+                width: 100%;
+                height: 300px;
+            }
+
+            .stack-cards {
+                max-width: 100%;
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr !important;
+                /* Single column on tablets and below */
+                gap: 20px;
+            }
+        }
+
+        /* Mobile phones - How It Works section adjustments */
+        @media (max-width: 600px) {
+            .how-it-works-section {
+                padding-bottom: 60px;
+                gap: 40px;
+            }
+
+            .hiw-image-container {
+                height: 250px;
+                border-radius: 20px;
+            }
+
+            .stack-cards {
+                max-width: 100%;
+            }
+
+            .stack-cards__item {
+                border-radius: 16px;
+                top: 60px !important;
+            }
+
+            .stack-cards__item:nth-child(1),
+            .stack-cards__item:nth-child(2),
+            .stack-cards__item:nth-child(3),
+            .stack-cards__item:nth-child(4) {
+                top: 60px !important;
+            }
+
+            .stack-cards__item>.card-inner {
+                padding: 24px;
+                border-radius: 10px;
+            }
+
+            .card-icon-circle {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 16px;
+            }
+
+            .card-icon-circle svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .card-title-hiw {
+                font-size: 16px;
+                /* Reduced from 18px */
+                margin-bottom: 10px;
+            }
+
+            .card-text {
+                font-size: 13px;
+                /* Reduced from 14px */
+                line-height: 1.6;
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr !important;
+                /* Single column on phones */
+                gap: 16px;
+                margin-top: 30px;
+            }
+
+            .doc-card {
+                padding: 14px;
+            }
+
+            .doc-image-box {
+                height: 180px;
+                margin-bottom: 16px;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 480px) {
+            .doc-grid {
+                gap: 12px;
+            }
+        }
+
+        /* --- Document Cards Styles --- */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .doc-card {
+            background: white;
+            border-radius: 24px;
+            padding: 16px;
+            border: 1px solid #F0F0F0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Standardized Static Class for cards with no hover effect */
+        .doc-card-static {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #F0F0F0 !important;
+            /* Matches standard doc-card */
+        }
+
+        .doc-card-static:hover {
+            transform: none !important;
+            /* Explicitly disable hover translation */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03) !important;
+        }
+
+        .doc-image-box {
+            background: #EAF6FF;
+            border-radius: 16px;
+            height: 220px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .doc-image-box img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .doc-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+
+        /* Sidebar Scripts and Overlay Styles are handled together */
+
+
+        /* --- Hero Categories / Icons Styles --- */
+        /* Animation for icons from top */
+        @keyframes fadeInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-categories {
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            flex-wrap: wrap;
+            gap: 40px;
+            width: 100%;
+
+            /* Fixed Positioning */
+            position: fixed;
+            top: 50px;
+            /* Increased from 20px */
+            left: 0;
+            z-index: 1000;
+            /* High z-index to stay on top */
+
+            /* Reset for fixed layout */
+            margin-bottom: 0;
+            padding-left: 0;
+            padding-top: 0;
+            pointer-events: none;
+            /* Let clicks pass through empty space */
+
+            /* Smooth transition for fade effect */
+            transition: opacity 0.3s ease;
+        }
+
+
+        /* --- WhatsApp Float Styles --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar-custom">
+        <a href="#" class="nav-brand">
+            <img src="../images/logo.png" alt="Inception Hub Logo" class="nav-logo-img">
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <button class="nav-toggle" aria-label="Toggle Menu">
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+        </button>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-content">
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="../index.html" class="sidebar-link">Home</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="BusinessRegistration.html" class="sidebar-link">Business Registration</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="StatutoryRegistration.html" class="sidebar-link">Statutory Registration</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="OnlinePresence.html" class="sidebar-link">Online Presence</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="BusinessOperations.html" class="sidebar-link">Business Operations</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="Compliances.html" class="sidebar-link">Compliances</a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div style="margin-bottom: 12px;">
+                    <a href="OnlinePresence.html" class="sidebar-link"
+                        style="padding: 0; display: inline-flex; align-items: center; gap: 10px;">
+                        Need help? Contact us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TOP ICONS - MATCHING IMAGE DESIGN -->
+    <div class="icons-section">
+        <a href="BusinessRegistration.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#0A2E5C 0%,#1a4a7a 100%)">
+                <i class="fas fa-handshake" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Business Registration</div>
+        </a>
+        <a href="StatutoryRegistration.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#F15A3A 0%,#e74c3c 100%)">
+                <i class="fas fa-file-lines" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Statutory Registration</div>
+        </a>
+        <a href="OnlinePresence.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%)">
+                <i class="fas fa-laptop-code" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Online Presence</div>
+        </a>
+        <a href="BusinessOperations.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#27ae60 0%,#2ecc71 100%)">
+                <i class="fas fa-chart-line" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Business Operations</div>
+        </a>
+        <a href="Compliances.html" class="icon-item" style="text-decoration:none;">
+            <div class="icon-box" style="background:linear-gradient(135deg,#e67e22 0%,#f39c12 100%)">
+                <i class="fas fa-clipboard-check" style="font-size:28px;color:#fff;"></i>
+            </div>
+            <div class="icon-label">Compliances</div>
+        </a>
+    </div>
+
+
+    <!-- Main Content Area - Sections Moved Outside One Wrapping Container for Full-Width Backgrounds -->
+
+
+
+
+    <a href="https://wa.me/919052213212" target="_blank" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                fill="white" />
+            <path
+                d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.4zm-8.475 18.297c-1.776 0-3.517-.477-5.033-1.377l-.36-.214-3.742.98 1.001-3.648-.235-.374c-.99-1.574-1.512-3.393-1.512-5.26.003-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898 1.867 1.867 2.893 4.35 2.89 6.988-.004 5.45-4.437 9.891-9.885 9.891z"
+                fill="white" />
+        </svg>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+
+
+
+
+
+    <section class="hero">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <h1 class="hero-headline">
+                    Start Your <span class="text-orange">Business Journey</span> With Expert Registration
+                </h1>
+                <p class="hero-subheadline">
+                    Transform your entrepreneurial vision into a legally registered business. Our experts handle all the
+                    paperwork while you focus on building your dream.
+                </p>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10000" data-suffix="+">0+</span>
+                        <span class="stat-label">Companies Registered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="99" data-suffix="%">0%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="7" data-suffix=" Days">0 Days</span>
+                        <span class="stat-label">Avg. Processing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div class="consultation-card">
+                <div class="card-header">
+                    <h2 class="card-title">Get Free Consultation</h2>
+                    <p class="card-subtitle">Talk to our experts and get personalized guidance</p>
+                </div>
+
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Select Registration Type</option>
+                            <option value="pvt-ltd">Private Limited Company</option>
+                            <option value="llp">Limited Liability Partnership</option>
+                            <option value="opc">One Person Company</option>
+                            <option value="partnership">Partnership Firm</option>
+                            <option value="proprietorship">Sole Proprietorship</option>
+                            <option value="section-8">Section 8 Company (NGO)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <!-- Simple Plane SVG Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="white" />
+                        </svg>
+                        Request Free Callback
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag-pill">Our Services</span>
+                <h2 class="section-title">Choose Your Business Structure</h2>
+                <p class="section-subtitle">Select the right entity type for your business needs and let our experts
+                    handle the registration process</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1: Private Limited Company -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Private Limited Company</h3>
+                    <p class="service-desc">Most popular choice for startups and growing businesses with separate legal
+                        entity status.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Limited liability protection</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Easy to raise funding</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Perpetual succession</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Tax benefits available</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Limited Liability Partnership -->
+                <div class="service-card">
+                    <div class="icon-box orange">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="service-title">Limited Liability Partnership</h3>
+                    <p class="service-desc">Perfect blend of partnership flexibility with corporate protection for
+                        professionals.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Low compliance requirements</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> No minimum capital</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Flexible profit sharing</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Easy to manage</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: One Person Company -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="service-title">One Person Company</h3>
+                    <p class="service-desc">Ideal for solo entrepreneurs who want corporate benefits with single
+                        ownership.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Single member ownership</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Limited liability</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Easy to convert to Pvt Ltd</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Separate legal entity</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Partnership Firm -->
+                <div class="service-card">
+                    <div class="icon-box orange">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">Partnership Firm</h3>
+                    <p class="service-desc">Traditional business structure for two or more partners with shared
+                        responsibilities.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Easy to form</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Minimal compliance</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Shared decision making</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Flexible operations</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Sole Proprietorship -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="service-title">Sole Proprietorship</h3>
+                    <p class="service-desc">Simplest business form for individual entrepreneurs with complete control.
+                    </p>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Easiest to start</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Complete control</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Minimal paperwork</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Direct tax benefits</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Section 8 Company (NGO) -->
+                <div class="service-card">
+                    <div class="icon-box orange">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="service-title">Section 8 Company (NGO)</h3>
+                    <p class="service-desc">Non-profit organization for charitable, social, or educational purposes.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Tax exemptions</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> CSR funding eligible</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Credibility & trust</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Donor confidence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+        <div class="section-header">
+            <span class="tag-pill">Process</span>
+            <h2 class="section-title">How It <span style="color: var(--accent-orange);">Works</span></h2>
+            <p class="section-subtitle">Get your company registered in 3 simple steps.</p>
+        </div>
+
+        <div class="hiw-content">
+            <ul class="stack-cards js-stack-cards">
+                <!-- Step 1 -->
+                <li class="stack-cards__item js-stack-cards__item card-1">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: #0A2540;">
+                                <!-- Upload Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0A2540;">Submit Documents</h3>
+                                <p class="card-text">Easily upload all your required business documents through our
+                                    secure portal or hand them over to our experts for quick verification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Step 2 -->
+                <li class="stack-cards__item js-stack-cards__item card-2">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Orange -->
+                            <div class="card-icon-circle" style="background-color: #F05638;">
+                                <!-- Settings/Process Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #F05638;">Expert Processing</h3>
+                                <p class="card-text">Our seasoned professionals handle all the legal formalities,
+                                    documentation, and government filings with precision and speed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Step 3 -->
+                <li class="stack-cards__item js-stack-cards__item card-3">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: #0A2540;">
+                                <!-- Check/Award Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0A2540;">Get Registered</h3>
+                                <p class="card-text">Receive your business registration certificates and legal documents
+                                    directly, marking the successful start of your company's journey.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="hiw-image-container">
+                <!-- Professional Business Image -->
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                    alt="Successful Business Team">
+            </div>
+        </div>
+    </section>
+
+    <!-- Required Documents Section -->
+    <section class="documents-section" style="padding: 100px 0; background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag-pill">Documents Needed</span>
+                <h2 class="section-title">Document Verification Grid</h2>
+                <p class="section-subtitle">Keep these documents ready for a smooth registration process</p>
+            </div>
+
+            <div class="doc-grid">
+                <!-- Card 1: Aadhaar Card (Static/No-Hover) -->
+                <div class="doc-card doc-card-static">
+                    <div class="doc-image-box">
+                        <img src="../images/idcard1.png" alt="Aadhaar Card">
+                    </div>
+                    <h3 class="doc-title">AADHAAR CARD</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 4px;">UIDAI AADHAAR</p>
+                </div>
+
+                <!-- Card 2: Photograph -->
+                <div class="doc-card">
+                    <div class="doc-image-box">
+                        <img src="../images/photograph.png" alt="Passport Size Photo">
+                    </div>
+                    <h3 class="doc-title">PHOTOGRAPH</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 4px;">PASSPHOTO OF DIRECTOR</p>
+                </div>
+
+                <!-- Card 3: PAN Card -->
+                <div class="doc-card">
+                    <div class="doc-image-box">
+                        <img src="../images/pan1.png" alt="PAN Card">
+                    </div>
+                    <h3 class="doc-title">PAN CARD</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 4px;">IDENTITY PROOF</p>
+                </div>
+
+                <!-- Card 4: Location Verification (Static/No-Hover, matches grid) -->
+                <div class="doc-card doc-card-static">
+                    <div class="doc-image-box">
+                        <img src="../images/directoradress.png" alt="Location Verification">
+                    </div>
+                    <h3 class="doc-title">LOCATION VERIFICATION</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 4px;">RESIDENTIAL & OFFICE MAP</p>
+                </div>
+
+                <!-- Card 5: Map Location -->
+                <div class="doc-card">
+                    <div class="doc-image-box">
+                        <img src="../images/businessproff.png" alt="Map Location">
+                    </div>
+                    <h3 class="doc-title">MAP LOCATION</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 4px;">REGISTERED OFFICE</p>
+                </div>
+
+                <!-- Card 6: Document Review -->
+                <div class="doc-card">
+                    <div class="doc-image-box">
+                        <img src="../images/note.png" alt="Document Review">
+                    </div>
+                    <h3 class="doc-title">DOCUMENT REVIEW</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 4px;">PENDING VERIFICATION</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Start Your Business CTA Section -->
+    <section class="cta-section">
+        <style>
+            .cta-section {
+                background-color: #0A2540; /* Dark Blue */
+                background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+                background-size: 30px 30px; /* Base for dots */
+                padding: 60px 0;
+                text-align: center;
+                color: white;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Plus pattern mesh overlay */
+            .cta-section::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background-image: 
+                    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+                background-size: 30px 30px;
+                background-position: center center;
+                mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+                pointer-events: none;
+            }
+
+            .cta-content {
+                position: relative;
+                z-index: 2;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .trust-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                font-size: 13px;
+                font-weight: 600;
+                padding: 6px 16px;
+                border-radius: 50px;
+                margin-bottom: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .star-icon-cta {
+                color: #F05638;
+                font-size: 14px;
+            }
+
+            .cta-headline {
+                font-size: clamp(28px, 4vw, 48px);
+                font-weight: 800;
+                margin-bottom: 15px;
+                line-height: 1.1;
+                letter-spacing: -1px;
+            }
+
+            .cta-desc {
+                font-size: clamp(14px, 1.8vw, 17px);
+                color: #B0BCD1;
+                margin-bottom: 30px;
+                line-height: 1.5;
+                max-width: 650px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-bottom: 35px;
+                flex-wrap: wrap;
+            }
+
+            .btn-primary-cta {
+                background-color: #F05638;
+                color: white;
+                padding: 14px 30px;
+                border-radius: 10px;
+                font-weight: 700;
+                font-size: 16px;
+                text-decoration: none;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(240, 86, 56, 0.25);
+            }
+
+            .btn-primary-cta:hover {
+                transform: translateY(-2px);
+                background-color: #E04E2E;
+                box-shadow: 0 6px 18px rgba(240, 86, 56, 0.35);
+            }
+
+            .btn-outline-cta {
+                background-color: transparent;
+                color: white;
+                padding: 14px 30px;
+                border-radius: 10px;
+                font-weight: 700;
+                font-size: 16px;
+                text-decoration: none;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                transition: all 0.3s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+            }
+
+            .btn-outline-cta:hover {
+                border-color: white;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .trust-features-row {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+
+            .trust-feature-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .check-circle-cta {
+                width: 20px;
+                height: 20px;
+                background-color: #F05638;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 10px;
+            }
+
+            @media (max-width: 768px) {
+                .trust-features-row {
+                    gap: 20px;
+                }
+                .trust-feature-item {
+                    font-size: 14px;
+                }
+            }
+        </style>
+
+        <div class="container cta-content">
+            <div class="trust-badge">
+                <i class="fas fa-star star-icon-cta"></i> Trusted by 10,000+ Businesses
+            </div>
+
+            <h2 class="cta-headline">Let's Start Your Business Journey Today</h2>
+
+            <p class="cta-desc">
+                Get expert guidance and hassle-free registration with our dedicated team of professionals.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary-cta">
+                    <i class="fas fa-arrow-right"></i> Get Free Consultation
+                </a>
+                <a href="https://wa.me/919052213212" class="btn-outline-cta">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+
+            <div class="trust-features-row">
+                <div class="trust-feature-item">
+                    <span class="check-circle-cta"><i class="fas fa-check"></i></span>
+                    No Hidden Charges
+                </div>
+                <div class="trust-feature-item">
+                    <span class="check-circle-cta"><i class="fas fa-check"></i></span>
+                    Expert Support
+                </div>
+                <div class="trust-feature-item">
+                    <span class="check-circle-cta"><i class="fas fa-check"></i></span>
+                    Quick Processing
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <style>
+            .site-footer {
+                background-color: #ffffff;
+                padding: 80px 0 0;
+                border-top: 1px solid #f0f4f8;
+                font-family: 'Inter', sans-serif;
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 60px;
+                padding-bottom: 60px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .footer-logo-link {
+                display: inline-block;
+                margin-bottom: 25px;
+            }
+
+            .footer-logo-img {
+                height: 40px;
+                width: auto;
+            }
+
+            .footer-description {
+                color: #556987;
+                font-size: 15px;
+                line-height: 1.6;
+                margin-bottom: 30px;
+                max-width: 400px;
+            }
+
+            .social-icons-row {
+                display: flex;
+                gap: 12px;
+            }
+
+            .social-circle {
+                width: 38px;
+                height: 38px;
+                background-color: #0A2540;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                font-size: 16px;
+            }
+
+            .social-circle:hover {
+                background-color: #F05638;
+                transform: translateY(-3px);
+            }
+
+            .footer-heading {
+                color: #0A2540;
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 30px;
+                font-family: 'Outfit', sans-serif;
+            }
+
+            .footer-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .footer-list li {
+                margin-bottom: 15px;
+            }
+
+            .footer-link {
+                color: #556987;
+                text-decoration: none;
+                font-size: 15px;
+                transition: color 0.2s;
+            }
+
+            .footer-link:hover {
+                color: #F05638;
+            }
+
+            .contact-info-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-info-item {
+                display: flex;
+                gap: 12px;
+                color: #556987;
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .contact-info-icon {
+                color: #556987; /* Light gray-blue as per image */
+                margin-top: 3px;
+                font-size: 14px;
+                flex-shrink: 0;
+            }
+
+            .footer-bottom-bar {
+                background-color: #ffffff;
+                border-top: 1px solid #f0f4f8;
+                padding: 25px 0;
+            }
+
+            .bottom-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .copyright-txt {
+                color: #8896AB;
+                font-size: 14px;
+            }
+
+            .bottom-links {
+                display: flex;
+                gap: 25px;
+            }
+
+            .bottom-link {
+                color: #8896AB;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .bottom-link:hover {
+                color: #0A2540;
+            }
+
+            @media (max-width: 991px) {
+                .footer-grid {
+                    grid-template-columns: 1fr 1.5fr;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+                .footer-heading {
+                    margin-bottom: 20px;
+                }
+            }
+        </style>
+
+        <div class="container footer-grid">
+            <!-- Branding Column -->
+            <div class="footer-column">
+                <a href="../index.html" class="footer-logo-link">
+                    <img src="../images/logo.png" alt="Inception Hub Logo" class="footer-logo-img" style="height: 60px;">
+                </a>
+                <p class="footer-description">
+                    Transforming your ideas into reality with comprehensive business solutions across registration, legal compliance, online presence, and more.
+                </p>
+                <div class="social-icons-row">
+                    <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Services Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="footer-list">
+                    <li><a href="BusinessRegistration.html" class="footer-link">Business Registration</a></li>
+                    <li><a href="StatutoryRegistration.html" class="footer-link">Statutory Registration</a></li>
+                    <li><a href="OnlinePresence.html" class="footer-link">Online Presence</a></li>
+                    <li><a href="BusinessOperations.html" class="footer-link">Business Operations</a></li>
+                    <li><a href="Compliances.html" class="footer-link">Compliances</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact</h4>
+                <div class="contact-info-list">
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt contact-info-icon" style="transform: rotate(15deg);"></i>
+                        <span>+91 90522 13212</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt contact-info-icon"></i>
+                        <span>Flat No 202, 2nd Floor, Satyabama Complex, Opposite Sai Baba Temple, Bhagya Nagar Colony, Kukatpally, Hyderabad, Telangana 500072, India.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="bottom-container">
+                <p class="copyright-txt">© 2025 InceptionHub. All rights reserved.</p>
+                <div class="bottom-links">
+                    <a href="#" class="bottom-link">Privacy Policy</a>
+                    <a href="#" class="bottom-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+            }
+
+            100% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+
+
+    <!-- Mobile Menu Overlay (Left Side) -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <style>
+            .mobile-menu-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 2000;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
+
+            .mobile-menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                /* Align to Left */
+                right: auto;
+                width: 100%;
+                max-width: 320px;
+                height: 100%;
+                background-color: #0A2540;
+                display: flex;
+                flex-direction: column;
+                transform: translateX(-100%);
+                /* Start hidden to the left */
+                transition: transform 0.3s ease-in-out;
+                box-shadow: 5px 0 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .mobile-menu-overlay.active .mobile-menu-container {
+                transform: translateX(0);
+            }
+
+            @media (max-width: 600px) {
+                .mobile-menu-container {
+                    width: 85%;
+                    max-width: none;
+                }
+            }
+
+            .mobile-menu-header {
+                background-color: white;
+                padding: 15px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-top-right-radius: 20px;
+                /* Rounded on right for left-side menu */
+            }
+
+            .mobile-menu-logo {
+                font-family: 'Outfit', sans-serif;
+                font-size: 20px;
+                font-weight: 800;
+                color: #0A2540;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .mobile-menu-logo span {
+                color: #F05638;
+            }
+
+            .mobile-close-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 8px;
+                color: #0A2540;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-menu-body {
+                flex: 1;
+                padding: 30px;
+                overflow-y: auto;
+                background-color: #0A2540;
+            }
+
+            .mobile-nav-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .mobile-nav-link {
+                font-family: 'Outfit', sans-serif;
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+                text-decoration: none;
+                display: block;
+                transition: color 0.2s;
+            }
+
+            .mobile-nav-link:hover {
+                color: #F05638;
+            }
+
+            .mobile-menu-footer {
+                padding: 20px 30px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                color: white;
+                font-size: 14px;
+            }
+
+            .mobile-menu-footer a {
+                color: #F05638;
+                text-decoration: none;
+                font-weight: 600;
+                margin-left: 5px;
+            }
+        </style>
+
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="#" class="mobile-menu-logo">INCEPTION<span>HUB</span></a>
+                <button class="mobile-close-btn" id="closeMenuBtn">
+                    <!-- X Icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-menu-body">
+                <ul class="mobile-nav-list">
+                    <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="BusinessRegistration.html" class="mobile-nav-link">Business Registration</a></li>
+                    <li><a href="StatutoryRegistration.html" class="mobile-nav-link">Statutory Registration</a></li>
+                    <li><a href="OnlinePresence.html" class="mobile-nav-link">Online Presence</a></li>
+                    <li><a href="BusinessOperations.html" class="mobile-nav-link">Business Operations</a></li>
+                    <li><a href="Compliances.html" class="mobile-nav-link">Compliances</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-menu-footer">
+                <div style="margin-bottom: 12px;">
+                    <a href="OnlinePresence.html" class="mobile-nav-link"
+                        style="font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        Need help? Contact us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Stacking Cards Script (Exact Overlap Version)
+        (function () {
+            var StackCards = function (element) {
+                this.element = element;
+                this.items = this.element.getElementsByClassName('js-stack-cards__item');
+                this.scrollingFn = false;
+                this.scrolling = false;
+                initStackCardsEffect(this);
+                initStackCardsResize(this);
+            };
+
+            function initStackCardsEffect(element) {
+                setStackCards(element);
+                var observer = new IntersectionObserver(stackCardsCallback.bind(element), { threshold: [0, 1] });
+                observer.observe(element.element);
+            };
+
+            function initStackCardsResize(element) {
+                window.addEventListener('resize', function () {
+                    setStackCards(element);
+                    animateStackCards.call(element);
+                });
+            };
+
+            function stackCardsCallback(entries) {
+                if (entries[0].isIntersecting) {
+                    if (this.scrollingFn) return;
+                    stackCardsInitEvent(this);
+                } else {
+                    if (!this.scrollingFn) return;
+                    window.removeEventListener('scroll', this.scrollingFn);
+                    this.scrollingFn = false;
+                }
+            };
+
+            function stackCardsInitEvent(element) {
+                element.scrollingFn = stackCardsScrolling.bind(element);
+                window.addEventListener('scroll', element.scrollingFn);
+            };
+
+            function stackCardsScrolling() {
+                if (this.scrolling) return;
+                this.scrolling = true;
+                window.requestAnimationFrame(animateStackCards.bind(this));
+            };
+
+            function setStackCards(element) {
+                element.expectScrollHeight = window.innerHeight * 0.5;
+                var cardStyle = getComputedStyle(element.items[0]);
+                element.cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top')));
+                element.cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')));
+                element.element.style.paddingBottom = '0px';
+                for (var i = 0; i < element.items.length; i++) {
+                    element.items[i].style.transform = 'none';
+                    element.items[i].style.zIndex = i + 1;
+                }
+            };
+
+            function animateStackCards() {
+                for (var i = 0; i < this.items.length; i++) {
+                    this.items[i].style.transform = 'none';
+                }
+                this.scrolling = false;
+            };
+
+            var stackCards = document.getElementsByClassName('js-stack-cards');
+            if (stackCards.length > 0) {
+                for (var i = 0; i < stackCards.length; i++) {
+                    new StackCards(stackCards[i]);
+                }
+            }
+        }());
+
+        // Service Cards Animation
+        const serviceObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    serviceObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.service-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            serviceObserver.observe(el);
+        });
+
+        // Stats Counter Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-number');
+            const duration = 2000;
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const startTime = performance.now();
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentCount = Math.floor(progress * target);
+                    counter.innerText = currentCount.toLocaleString() + suffix;
+                    if (progress < 1) requestAnimationFrame(updateCount);
+                    else counter.innerText = target.toLocaleString() + suffix;
+                };
+                requestAnimationFrame(updateCount);
+            });
+        });
+
+        // Menu and Navigation Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const sidebarNav = document.querySelector('.sidebar-nav');
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+            const iconsSection = document.querySelector('.icons-section');
+
+            // Sidebar Toggle
+            if (navToggle && sidebarNav && sidebarOverlay) {
+                navToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    sidebarNav.classList.toggle('active');
+                    sidebarOverlay.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+
+                sidebarOverlay.addEventListener('click', () => {
+                    sidebarNav.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            }
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (e) => {
+                if (sidebarNav && !sidebarNav.contains(e.target) && navToggle && !navToggle.contains(e.target)) {
+                    sidebarNav.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+
+            // Smooth scroll for sidebar links
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#') && href !== '#') {
+                        e.preventDefault();
+                        sidebarNav.classList.remove('active');
+                        sidebarOverlay.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        const target = document.querySelector(href);
+                        if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Icons Section - Disappear on Scroll
+            if (iconsSection) {
+                // Initial state handled by CSS transitions
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        iconsSection.classList.add('scroll-hidden');
+                    } else {
+                        iconsSection.classList.remove('scroll-hidden');
+                    }
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

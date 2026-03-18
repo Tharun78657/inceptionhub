@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Operations - InceptionHub</title>
+    <title>Statutory Registration - Inception Hub</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -183,13 +183,23 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
+        @media (max-width: 600px) {
+            .navbar-custom {
+                width: 280px;
+                padding: 8px 15px;
+            }
+
+            .nav-logo-img {
+                height: 38px;
+            }
+        }
+
         /* --- Icons Section Styles --- */
         @keyframes fadeInFromTop {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -392,9 +402,7 @@
             margin-bottom: 24px;
         }
 
-        .text-orange {
-            color: var(--accent-orange);
-        }
+        .text-orange { color: var(--accent-orange); }
 
         .hero-subheadline {
             font-size: clamp(14px, 2vw, 16px);
@@ -518,6 +526,12 @@
             box-shadow: 0 8px 25px rgba(232, 92, 65, 0.4);
         }
 
+        @media (max-width: 992px) {
+            .hero-layout { grid-template-columns: 1fr; gap: 40px; }
+            .hero-headline { font-size: 42px; }
+            .hero { padding-top: 100px; }
+        }
+
         /* --- Section Headers --- */
         .section-header {
             text-align: center;
@@ -586,9 +600,7 @@
             border-color: transparent;
         }
 
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
+        .service-card:hover::before { transform: scaleX(1); }
 
         .service-card .icon-box {
             width: 60px;
@@ -622,9 +634,7 @@
             overflow: hidden;
         }
 
-        .feature-list {
-            list-style: none;
-        }
+        .feature-list { list-style: none; }
 
         .feature-item {
             display: flex;
@@ -641,21 +651,15 @@
         }
 
         @media (max-width: 992px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 600px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            .services-grid { grid-template-columns: 1fr; }
         }
 
         /* --- How It Works --- */
-        .how-it-works-section {
-            background: white;
-        }
+        .how-it-works-section { background: white; }
 
         .hiw-content {
             display: flex;
@@ -722,22 +726,56 @@
         }
 
         @media (max-width: 992px) {
-            .hiw-content {
-                flex-direction: column-reverse;
-            }
-
-            .hiw-image-container {
-                position: relative;
-                top: 0;
-                width: 100%;
-                height: 300px;
-            }
-
-            .stack-cards__item {
-                position: relative;
-                top: 0;
-            }
+            .hiw-content { flex-direction: column-reverse; }
+            .hiw-image-container { position: relative; top: 0; width: 100%; height: 300px; }
+            .stack-cards__item { position: relative; top: 0; }
         }
+
+        /* --- Document Cards --- */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .doc-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid var(--gray-200);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .doc-card:hover { transform: translateY(-5px); }
+
+        .doc-image-box {
+            background: #EAF6FF;
+            border-radius: var(--radius);
+            height: 200px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .doc-image-box img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .doc-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 992px) { .doc-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .doc-grid { grid-template-columns: 1fr; } }
 
         /* --- CTA Section --- */
         .cta-section {
@@ -749,12 +787,7 @@
             overflow: hidden;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
 
         .trust-badge {
             display: inline-flex;
@@ -769,28 +802,12 @@
             margin-bottom: 24px;
         }
 
-        .star-icon {
-            color: var(--accent);
-        }
+        .star-icon { color: var(--accent); }
 
-        .cta-headline {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
+        .cta-headline { font-size: 42px; font-weight: 800; margin-bottom: 24px; }
+        .cta-desc { font-size: 18px; opacity: 0.9; margin-bottom: 40px; }
 
-        .cta-desc {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
         .btn-outline-cta {
             background: transparent;
@@ -803,10 +820,7 @@
             transition: all 0.3s ease;
         }
 
-        .btn-outline-cta:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
+        .btn-outline-cta:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
 
         /* --- Footer --- */
         .site-footer {
@@ -822,21 +836,10 @@
             margin-bottom: 60px;
         }
 
-        .footer-logo img {
-            height: 80px;
-            margin-bottom: 24px;
-        }
+        .footer-logo img { height: 80px; margin-bottom: 24px; }
+        .footer-desc { color: var(--gray-600); margin-bottom: 30px; }
 
-        .footer-desc {
-            color: var(--gray-600);
-            margin-bottom: 30px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-        }
-
+        .social-links { display: flex; gap: 12px; }
         .social-icon {
             width: 40px;
             height: 40px;
@@ -849,82 +852,25 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
+        .social-icon:hover { background: var(--accent); transform: translateY(-3px); }
 
-        .social-icon:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
+        .footer-heading { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 24px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-link { color: var(--gray-600); text-decoration: none; transition: color 0.3s; }
+        .footer-link:hover { color: var(--accent); }
 
-        .footer-heading {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
+        .contact-item { display: flex; gap: 15px; margin-bottom: 20px; color: var(--gray-600); }
+        .contact-icon { color: var(--accent); }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-link {
-            color: var(--gray-600);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-link:hover {
-            color: var(--accent);
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            color: var(--gray-600);
-        }
-
-        .contact-icon {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-200);
-            padding: 30px 0;
-        }
-
-        .footer-bottom-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .copyright {
-            font-size: 14px;
-            color: var(--gray-400);
-        }
-
-        .policy-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .policy-link {
-            font-size: 14px;
-            color: var(--gray-400);
-            text-decoration: none;
-        }
+        .footer-bottom { border-top: 1px solid var(--gray-200); padding: 30px 0; }
+        .footer-bottom-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .copyright { font-size: 14px; color: var(--gray-400); }
+        .policy-links { display: flex; gap: 20px; }
+        .policy-link { font-size: 14px; color: var(--gray-400); text-decoration: none; }
 
         @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
 
         /* --- WhatsApp Float --- */
@@ -947,10 +893,8 @@
             text-decoration: none;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+
     </style>
 </head>
 
@@ -1028,23 +972,23 @@
         <div class="container hero-layout">
             <div class="hero-content">
                 <h1 class="hero-headline">
-                    Streamline Your <span class="text-orange">Business Operations</span>
+                    Complete <span class="text-orange">Statutory Registration</span> For Your Business
                 </h1>
                 <p class="hero-subheadline">
-                    Professional accounting, HR management, payroll processing, virtual office, and business consulting services for growing businesses.
+                    Get all mandatory licenses and registrations for your business. GST, FSSAI, MSME, Trade License, IEC and more - all under one roof.
                 </p>
                 <div class="stats-row">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="2000" data-suffix="+">0+</span>
-                        <span class="stat-label">Businesses Served</span>
+                        <span class="stat-number" data-target="15000" data-suffix="+">0+</span>
+                        <span class="stat-label">Licenses Obtained</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="50" data-suffix="+">0+</span>
-                        <span class="stat-label">Expert Consultants</span>
+                        <span class="stat-number" data-target="99" data-suffix="%">0%</span>
+                        <span class="stat-label">Approval Rate</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="24" data-suffix="/7">0/7</span>
-                        <span class="stat-label">Support Available</span>
+                        <span class="stat-number" data-target="5" data-suffix=" Days">0 Days</span>
+                        <span class="stat-label">Avg. Processing</span>
                     </div>
                 </div>
             </div>
@@ -1053,7 +997,7 @@
             <div class="consultation-card">
                 <div class="card-header">
                     <h2 class="card-title">Get Free Consultation</h2>
-                    <p class="card-subtitle">Talk to our experts and optimize your daily business operations</p>
+                    <p class="card-subtitle">Talk to our legal experts for personalized guidance</p>
                 </div>
                 <form action="#">
                     <div class="form-group">
@@ -1067,13 +1011,13 @@
                     </div>
                     <div class="form-group">
                         <select class="form-select" required>
-                            <option value="" disabled selected>Select Service Type</option>
-                            <option value="accounting">Accounting & Bookkeeping</option>
-                            <option value="payroll">Payroll Management</option>
-                            <option value="hr">HR Services</option>
-                            <option value="virtual">Virtual Office</option>
-                            <option value="consulting">Business Consulting</option>
-                            <option value="funding">Funding Assistance</option>
+                            <option value="" disabled selected>Select Registration Type</option>
+                            <option value="gst">GST Registration</option>
+                            <option value="fssai">FSSAI License</option>
+                            <option value="msme">MSME/Udyam Registration</option>
+                            <option value="trade">Trade License</option>
+                            <option value="iec">Import Export Code (IEC)</option>
+                            <option value="trademark">Trademark Registration</option>
                         </select>
                     </div>
                     <button type="submit" class="submit-btn">
@@ -1092,81 +1036,81 @@
     <section class="services-section">
         <div class="container">
             <div class="section-header">
-                <span class="tag-pill">Operational Excellence</span>
-                <h2 class="section-title">Run Your Business Smoothly</h2>
-                <p class="section-subtitle">Focus on growth while we handle your day-to-day operations with expert efficiency</p>
+                <span class="tag-pill">Legal Services</span>
+                <h2 class="section-title">Essential Licenses & Registrations</h2>
+                <p class="section-subtitle">Get all mandatory compliances for your business with our expert assistance</p>
             </div>
 
             <div class="services-grid">
-                <!-- Card 1: Accounting & Bookkeeping -->
+                <!-- Card 1: GST Registration -->
                 <div class="service-card">
-                    <div class="icon-box"><i class="fas fa-calculator"></i></div>
-                    <h3 class="service-title">Accounting & Bookkeeping</h3>
-                    <p class="service-desc">Professional accounting services to keep your finances organized, transparent, and fully compliant.</p>
+                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="service-title">GST Registration</h3>
+                    <p class="service-desc">Mandatory for businesses with turnover above ₹40 lakhs. Get your GSTIN in 3-5 working days.</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Monthly Bookkeeping</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Financial Statements</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Tax Preparation & Audit</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> 15-digit unique GSTIN</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Input tax credit benefits</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Pan-India selling eligibility</li>
                     </ul>
                 </div>
 
-                <!-- Card 2: Payroll Management -->
+                <!-- Card 2: FSSAI License -->
                 <div class="service-card">
-                    <div class="icon-box orange"><i class="fas fa-users-gear"></i></div>
-                    <h3 class="service-title">Payroll Management</h3>
-                    <p class="service-desc">Hassle-free payroll processing with full statutory compliance and on-time salary disbursements.</p>
+                    <div class="icon-box orange"><i class="fas fa-utensils"></i></div>
+                    <h3 class="service-title">FSSAI License</h3>
+                    <p class="service-desc">Required for all food businesses. Get basic, state, or central license based on your turnover.</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> PF/ESI Compliance</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> TDS Deductions</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Payslip Generation</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> 14-digit license number</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Valid for 1-5 years</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Strengthens consumer trust</li>
                     </ul>
                 </div>
 
-                <!-- Card 3: HR Services -->
+                <!-- Card 3: MSME/Udyam Registration -->
                 <div class="service-card">
-                    <div class="icon-box"><i class="fas fa-user-tie"></i></div>
-                    <h3 class="service-title">HR Services</h3>
-                    <p class="service-desc">Complete end-to-end human resource solutions from talent acquisition to performance management.</p>
+                    <div class="icon-box"><i class="fas fa-industry"></i></div>
+                    <h3 class="service-title">MSME/Udyam Registration</h3>
+                    <p class="service-desc">Free government registration for small businesses. Unlock subsidies and benefits worth lakhs.</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Recruitment & Hiring</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> HR Policy Design</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Employee Onboarding</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Lifetime validity</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Lower interest rates on loans</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Access to Govt. tenders</li>
                     </ul>
                 </div>
 
-                <!-- Card 4: Virtual Office -->
+                <!-- Card 4: Trade License -->
                 <div class="service-card">
-                    <div class="icon-box orange"><i class="fas fa-building-circle-check"></i></div>
-                    <h3 class="service-title">Virtual Office</h3>
-                    <p class="service-desc">Professional business addresses and office services without the heavy overhead of physical spaces.</p>
+                    <div class="icon-box orange"><i class="fas fa-store"></i></div>
+                    <h3 class="service-title">Trade License</h3>
+                    <p class="service-desc">Municipal permission to run business from a specific location. Mandatory for all establishments.</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Prime Business Address</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Mail Handling Services</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> GST Registration Ready</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Local authority approval</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Legal business operation</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Multiple service categories</li>
                     </ul>
                 </div>
 
-                <!-- Card 5: Business Consulting -->
+                <!-- Card 5: Import Export Code (IEC) -->
                 <div class="service-card">
-                    <div class="icon-box"><i class="fas fa-lightbulb"></i></div>
-                    <h3 class="service-title">Business Consulting</h3>
-                    <p class="service-desc">Strategic advice to help you scale your business model and optimize internal process workflows.</p>
+                    <div class="icon-box"><i class="fas fa-globe"></i></div>
+                    <h3 class="service-title">Import Export Code (IEC)</h3>
+                    <p class="service-desc">One-time registration to import or export goods. Mandatory for international trade.</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Growth Strategies</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Market Research</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Process Optimization</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> One-time lifetime validity</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> No renewal required</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Global market access</li>
                     </ul>
                 </div>
 
-                <!-- Card 6: Funding Assistance -->
+                <!-- Card 6: Trademark Registration -->
                 <div class="service-card">
-                    <div class="icon-box orange"><i class="fas fa-hand-holding-dollar"></i></div>
-                    <h3 class="service-title">Funding Assistance</h3>
-                    <p class="service-desc">Expert help with bank loans, government schemes, and investor connections to fuel your growth.</p>
+                    <div class="icon-box orange"><i class="fas fa-registered"></i></div>
+                    <h3 class="service-title">Trademark Registration</h3>
+                    <p class="service-desc">Protect your brand name, logo, and tagline. 10 years protection with renewal options.</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Bank Loan Support</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Investor Pitch Deck</li>
-                        <li class="feature-item"><i class="fas fa-check-circle"></i> Funding Documentation</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Complete brand protection</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Exclusive legal ownership</li>
+                        <li class="feature-item"><i class="fas fa-check-circle"></i> Use ™ and ® symbols</li>
                     </ul>
                 </div>
             </div>
@@ -1178,44 +1122,82 @@
         <div class="container">
             <div class="section-header">
                 <span class="tag-pill">Process</span>
-                <h2 class="section-title">How We <span class="text-orange">Scale You</span></h2>
-                <p class="section-subtitle">Seamless onboarding and ongoing excellence in 4 strategic steps.</p>
+                <h2 class="section-title">How It <span class="text-orange">Works</span></h2>
+                <p class="section-subtitle">Get your mandatory licenses in 4 simple steps.</p>
             </div>
 
             <div class="hiw-content">
                 <ul class="stack-cards js-stack-cards">
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-comments"></i></div>
-                            <h3 class="card-title-hiw">Consultation</h3>
-                            <p class="card-text">We work closely with you to understand your unique business challenges and specific operational requirements.</p>
+                            <div class="card-icon-circle"><i class="fas fa-list-check"></i></div>
+                            <h3 class="card-title-hiw">Choose Service</h3>
+                            <p class="card-text">Select the license or registration you need from our comprehensive range of legal services tailored for your business.</p>
                         </div>
                     </li>
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-map-marked-alt"></i></div>
-                            <h3 class="card-title-hiw">Custom Plan</h3>
-                            <p class="card-text">Our experts design tailored systems and workflows specifically aligned with your long-term business objectives.</p>
+                            <div class="card-icon-circle"><i class="fas fa-upload"></i></div>
+                            <h3 class="card-title-hiw">Submit Documents</h3>
+                            <p class="card-text">Upload your required documents securely. Our team will verify and prepare all paperwork for government submission.</p>
                         </div>
                     </li>
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-rocket"></i></div>
-                            <h3 class="card-title-hiw">Implementation</h3>
-                            <p class="card-text">We seamlessly integrate new tools, HR policies, and accounting processes into your daily operations.</p>
+                            <div class="card-icon-circle"><i class="fas fa-user-shield"></i></div>
+                            <h3 class="card-title-hiw">Expert Processing</h3>
+                            <p class="card-text">Our legal experts handle all government formalities, follow-ups, and compliance checks to ensure smooth approval.</p>
                         </div>
                     </li>
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-handshake-angle"></i></div>
-                            <h3 class="card-title-hiw">Ongoing Support</h3>
-                            <p class="card-text">Continuous assistance and process audits to ensure your business maintains peak efficiency and sustained growth.</p>
+                            <div class="card-icon-circle"><i class="fas fa-award"></i></div>
+                            <h3 class="card-title-hiw">Get License</h3>
+                            <p class="card-text">Receive your approved license or registration certificate directly. We ensure timely delivery with full documentation.</p>
                         </div>
                     </li>
                 </ul>
 
                 <div class="hiw-image-container">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Business Operations Team">
+                    <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=800&q=80" alt="Legal Registration Process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Required Documents Section -->
+    <section class="documents-section" style="background: var(--gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag-pill">Documents</span>
+                <h2 class="section-title">Required Documents</h2>
+                <p class="section-subtitle">Keep these documents ready for a smooth registration process</p>
+            </div>
+
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-image-box"><img src="../images/pan1.png" alt="PAN Card"></div>
+                    <h3 class="doc-title">PAN Card</h3>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-image-box"><img src="../images/photograph.png" alt="Photograph"></div>
+                    <h3 class="doc-title">Photograph</h3>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-image-box"><img src="../images/idcard1.png" alt="Identity Proof"></div>
+                    <h3 class="doc-title">Identity Proof</h3>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-image-box"><img src="../images/directoradress.png" alt="Director Address"></div>
+                    <h3 class="doc-title">Director Address Proof</h3>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-image-box"><img src="../images/businessproff.png" alt="Business Address"></div>
+                    <h3 class="doc-title">Business Address Proof</h3>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-image-box"><img src="../images/note.png" alt="Other Documents"></div>
+                    <h3 class="doc-title">Other Essential Documents</h3>
                 </div>
             </div>
         </div>
@@ -1314,7 +1296,7 @@
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 display: inline-flex;
                 align-items: center;
-                gap: 12px;
+                gap: 10px;
                 border: none;
                 cursor: pointer;
                 box-shadow: 0 4px 12px rgba(240, 86, 56, 0.25);
@@ -1388,13 +1370,13 @@
 
         <div class="container cta-content">
             <div class="trust-badge">
-                <i class="fas fa-star star-icon-cta"></i> 2000+ Businesses Trust InceptionHub
+                <i class="fas fa-star star-icon-cta"></i> Trusted by 15,000+ Businesses
             </div>
 
-            <h2 class="cta-headline">Ready to Optimize Your Operations?</h2>
+            <h2 class="cta-headline">Get All Your Licenses Today</h2>
 
             <p class="cta-desc">
-                Let's discuss how we can help your business run more efficiently. Focus on scaling, we handle the rest.
+                Expert assistance for all legal registrations and compliances at your fingertips.
             </p>
 
             <div class="cta-buttons">
@@ -1691,10 +1673,10 @@
                         const update = () => {
                             count += Math.ceil(target / 100);
                             if (count < target) {
-                                entry.target.innerText = count.toLocaleString() + suffix;
+                                entry.target.innerText = count + suffix;
                                 setTimeout(update, 20);
                             } else {
-                                entry.target.innerText = target.toLocaleString() + suffix;
+                                entry.target.innerText = target + suffix;
                             }
                         };
                         update();

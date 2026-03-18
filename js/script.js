@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 0,
-      title: "Registration",
+      title: "Business Registration",
       text: "Secure your business identity with effortless registration support.",
       cta: "Start Registration",
       iconClass: "fa-handshake",
@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       type: "icon",
       iconIndex: 1,
-      title: "Legal Registration",
+      title: "Statutory Registration",
       text: "Stay compliant with expert-backed legal filings and approvals.",
-      cta: "Begin Legal Setup",
+      cta: "Begin Statutory Setup",
       iconClass: "fa-file-lines",
       ctaIndex: 1,
     },
@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector(".main-footer");
 
   const pageMap = [
-    "Pages/Registration.html",
-    "Pages/LegalRegistration.html",
+    "Pages/BusinessRegistration.html",
+    "Pages/StatutoryRegistration.html",
     "Pages/OnlinePresence.html",
     "Pages/BusinessOperations.html",
     "Pages/Compliances.html",
@@ -735,8 +735,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const pagePrefix = inPagesDirectory ? "" : "Pages/";
     const navItems = [
       { label: "Home", path: homePath },
-      { label: "Registration", path: `${pagePrefix}Registration.html` },
-      { label: "Legal Registration", path: `${pagePrefix}LegalRegistration.html` },
+      { label: "Business Registration", path: `${pagePrefix}BusinessRegistration.html` },
+      { label: "Statutory Registration", path: `${pagePrefix}StatutoryRegistration.html` },
       { label: "Online Presence", path: `${pagePrefix}OnlinePresence.html` },
       {
         label: "Business Operations",
