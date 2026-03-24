@@ -1619,7 +1619,7 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
   /* Stage overlay adjustments */
   .stage-overlay {
     align-items: flex-start !important;
-    padding-top: 70px !important;
+    padding-top: 100px !important;
     padding-bottom: 40px !important;
   }
 
@@ -1848,11 +1848,13 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 120px; /* Increased height for better visibility */
+    height: 120px;
+    /* Increased height for better visibility */
     background-image: url('images/f4.png');
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-size: 100% auto; /* Ensures it spans the full width of mobile screens */
+    background-size: 100% auto;
+    /* Ensures it spans the full width of mobile screens */
     z-index: 35;
     pointer-events: none;
     opacity: 1;
