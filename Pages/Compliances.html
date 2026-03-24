@@ -988,6 +988,7 @@
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
+
         /* --- How It Works / Stacking Cards Styles --- */
         .how-it-works-section {
             width: 100%;
@@ -1058,7 +1059,7 @@
         .stack-cards__item:nth-child(3),
         .stack-cards__item:nth-child(4) {
             top: 120px;
-         }
+        }
 
         .stack-cards__item>.card-inner {
             position: absolute;
@@ -1158,7 +1159,8 @@
                 margin-bottom: 16px;
             }
 
-            .card-icon-circle svg, .card-icon-circle i {
+            .card-icon-circle svg,
+            .card-icon-circle i {
                 font-size: 20px !important;
                 width: 20px;
                 height: 20px;
@@ -1413,53 +1415,116 @@
 
     <!-- How It Works Section -->
     <section class="how-it-works-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Process</span>
-                <h2 class="section-title">How We Keep You <span class="text-orange">Safe</span></h2>
-                <p class="section-subtitle">Hassle-free 4-step compliance management process for your mental peace.</p>
-            </div>
+        <div class="section-header">
+            <span class="tag-pill">How It Works</span>
+            <h2 class="section-title">How We Keep You <span style="color: var(--accent-orange);">Compliant</span></h2>
+            <p class="section-subtitle">Hassle-free 4-step compliance management process.</p>
+        </div>
 
-            <div class="hiw-content">
-                <ul class="stack-cards js-stack-cards">
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-cloud-upload-alt"></i></div>
-                            <h3 class="card-title-hiw">Share Details</h3>
-                            <p class="card-text">Securely share your business transactions and financial details through
-                                our integrated client dashboard.</p>
+        <div class="hiw-content">
+            <ul class="stack-cards js-stack-cards">
+                <!-- Step 1 -->
+                <li class="stack-cards__item js-stack-cards__item card-1">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: #0A2540;">
+                                <!-- Upload Document Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0A2540;">Share Details</h3>
+                                <p class="card-text">Provide your basic business and financial information through our
+                                    secure client portal.</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-cog"></i></div>
-                            <h3 class="card-title-hiw">We Prepare</h3>
-                            <p class="card-text">Our professional team analyzes your data and prepares precise filings,
-                                returns, and statutory documents.</p>
-                        </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-check-double"></i></div>
-                            <h3 class="card-title-hiw">You Approve</h3>
-                            <p class="card-text">Review the prepared compliance reports and provide your final approval
-                                before we submit them to authorities.</p>
-                        </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-paper-plane"></i></div>
-                            <h3 class="card-title-hiw">We File</h3>
-                            <p class="card-text">We execute the timely submission to government portals and provide you
-                                with the acknowledgement receipts immediately.</p>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </li>
 
-                <div class="hiw-image-container">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
-                        alt="Compliance Management">
-                </div>
+                <!-- Step 2 -->
+                <li class="stack-cards__item js-stack-cards__item card-2">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Orange -->
+                            <div class="card-icon-circle" style="background-color: #F05638;">
+                                <!-- Gears/Processing Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"></path>
+                                    <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+                                    <path d="M12 2v2"></path>
+                                    <path d="M12 22v-2"></path>
+                                    <path d="M2.5 12h2"></path>
+                                    <path d="M22 12h-2"></path>
+                                    <path d="M4.93 4.93l1.41 1.41"></path>
+                                    <path d="M17.66 17.66l1.41 1.41"></path>
+                                    <path d="M4.93 19.07l1.41-1.41"></path>
+                                    <path d="M17.66 6.34l1.41-1.41"></path>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #F05638;">We Prepare</h3>
+                                <p class="card-text">Our experts prepare all necessary filings, returns, and legal
+                                    documents with high precision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Step 3 -->
+                <li class="stack-cards__item js-stack-cards__item card-3">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: #0A2540;">
+                                <!-- Success Certificate/Badge Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    <path d="M9 12l2 2 4-4"></path>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0A2540;">You Approve</h3>
+                                <p class="card-text">Review the prepared documents and provide your final approval
+                                    before we proceed to filing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Step 4 -->
+                <li class="stack-cards__item js-stack-cards__item card-4">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <div class="card-icon-circle" style="background-color: #F05638;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #F05638;">We File</h3>
+                                <p class="card-text">We handle the timely submission to government authorities and
+                                    ensure you remain 100% compliant.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="hiw-image-container">
+                <!-- Professional Business Image -->
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+                    alt="Compliance Audit and Filing">
+                <div style="text-align: center; margin-top: 10px; font-weight: bold; color: #0A2540;">Compliance
+                    Management</div>
             </div>
         </div>
     </section>

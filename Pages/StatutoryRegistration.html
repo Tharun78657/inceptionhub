@@ -1064,6 +1064,7 @@
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
+
         /* --- How It Works / Stacking Cards Styles --- */
         .how-it-works-section {
             width: 100%;
@@ -1234,7 +1235,8 @@
                 margin-bottom: 16px;
             }
 
-            .card-icon-circle svg, .card-icon-circle i {
+            .card-icon-circle svg,
+            .card-icon-circle i {
                 font-size: 20px !important;
                 width: 20px;
                 height: 20px;
@@ -1489,53 +1491,105 @@
 
     <!-- How It Works Section -->
     <section class="how-it-works-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Process</span>
-                <h2 class="section-title">How It <span class="text-orange">Works</span></h2>
-                <p class="section-subtitle">Get your mandatory licenses in 4 simple steps.</p>
-            </div>
+        <div class="section-header">
+            <span class="tag-pill">How It Works</span>
+            <h2 class="section-title">How It <span style="color: var(--accent-orange);">Works</span></h2>
+            <p class="section-subtitle">Get your company registered in 4 simple steps.</p>
+        </div>
 
-            <div class="hiw-content">
-                <ul class="stack-cards js-stack-cards">
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-list-check"></i></div>
-                            <h3 class="card-title-hiw">Choose Service</h3>
-                            <p class="card-text">Select the license or registration you need from our comprehensive
-                                range of legal services tailored for your business.</p>
+        <div class="hiw-content">
+            <ul class="stack-cards js-stack-cards">
+                <li class="stack-cards__item js-stack-cards__item card-1">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: transparent; color: #1A365D;">
+                                <!-- Choose Service Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #1A365D;">Choose Service</h3>
+                                <p class="card-text">Select the license or registration you need from our comprehensive
+                                    range of legal services tailored for your business.</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-upload"></i></div>
-                            <h3 class="card-title-hiw">Submit Documents</h3>
-                            <p class="card-text">Upload your required documents securely. Our team will verify and
-                                prepare all paperwork for government submission.</p>
-                        </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-user-shield"></i></div>
-                            <h3 class="card-title-hiw">Expert Processing</h3>
-                            <p class="card-text">Our legal experts handle all government formalities, follow-ups, and
-                                compliance checks to ensure smooth approval.</p>
-                        </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-award"></i></div>
-                            <h3 class="card-title-hiw">Get License</h3>
-                            <p class="card-text">Receive your approved license or registration certificate directly. We
-                                ensure timely delivery with full documentation.</p>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </li>
 
-                <div class="hiw-image-container">
-                    <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=800&q=80"
-                        alt="Legal Registration Process">
-                </div>
+                <li class="stack-cards__item js-stack-cards__item card-2">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Blue -->
+                            <div class="card-icon-circle" style="background-color: transparent; color: #0066CC;">
+                                <!-- Upload Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0066CC;">Submit Documents</h3>
+                                <p class="card-text">Upload your required documents securely. Our team will verify and
+                                    prepare all paperwork for government submission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="stack-cards__item js-stack-cards__item card-3">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Lavender -->
+                            <div class="card-icon-circle" style="background-color: transparent; color: #805AD5;">
+                                <!-- Settings/Process Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #805AD5;">Expert Processing</h3>
+                                <p class="card-text">Our legal experts handle all government formalities, follow-ups,
+                                    and compliance checks to ensure smooth approval.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="stack-cards__item js-stack-cards__item card-4">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Emerald -->
+                            <div class="card-icon-circle" style="background-color: transparent; color: #38A169;">
+                                <!-- Check/Award Icon -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #38A169;">Get License</h3>
+                                <p class="card-text">Receive your approved license or registration certificate directly.
+                                    We ensure timely delivery with full documentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="hiw-image-container">
+                <!-- Professional Business Image -->
+                <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=800&q=80"
+                    alt="Legal Registration Process">
             </div>
         </div>
     </section>

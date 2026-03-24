@@ -719,65 +719,38 @@
 
         /* --- How It Works --- */
         .how-it-works-section {
-            background: white;
+            width: 100%;
+            padding: 0 0 100px;
+            /* Added 20px horizontal padding to match .container */
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
         }
 
         .hiw-content {
             display: flex;
-            gap: 60px;
             align-items: flex-start;
-        }
-
-        .stack-cards {
-            flex: 1;
-            list-style: none;
-            padding: 0;
-        }
-
-        .stack-cards__item {
-            position: sticky;
-            top: 120px;
-            background: var(--light-bg);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid var(--gray-200);
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .card-icon-circle {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-        }
-
-        .card-title-hiw {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .card-text {
-            color: var(--gray-600);
-            font-size: 16px;
+            gap: 60px;
         }
 
         .hiw-image-container {
             flex: 1;
+            max-width: 540px;
+            /* Balanced with cards */
+            position: -webkit-sticky;
             position: sticky;
             top: 120px;
-            height: 500px;
-            border-radius: var(--radius-lg);
+            height: 480px;
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 1100px) {
+            .hiw-content {
+                gap: 30px !important;
+            }
         }
 
         .hiw-image-container img {
@@ -786,9 +759,136 @@
             object-fit: cover;
         }
 
-        @media (max-width: 992px) {
+        /* Stack Cards Styles */
+        .stack-cards {
+            --stack-cards-item-ratio: 16/9;
+            /* Aspect ratio */
+            list-style: none;
+            width: 100%;
+            max-width: 540px;
+            /* Slightly reduced to give image more room */
+            padding: 0;
+            flex-shrink: 0;
+            /* Don't shrink cards */
+        }
+
+        .stack-cards__item {
+            position: relative;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 100px;
+            /* Base top */
+            height: 0;
+            padding-bottom: calc(100%/(var(--stack-cards-item-ratio)));
+            transform-origin: center top;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.02);
+            border-radius: 24px;
+            overflow: hidden;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Continuous Sticky Offsets for "Exact Overlap" Effect */
+        .stack-cards__item:nth-child(1) {
+            top: 120px;
+        }
+
+        .stack-cards__item:nth-child(2) {
+            top: 120px;
+        }
+
+        .stack-cards__item:nth-child(3) {
+            top: 120px;
+        }
+
+        .stack-cards__item:nth-child(4) {
+            top: 120px;
+        }
+
+        /* Updated Stack Cards Design */
+        .stack-cards__item>.card-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Alignment from image */
+            justify-content: flex-start;
+            padding: 40px;
+            background-color: #F8F9FA !important;
+            /* Light white background */
+            border: 1px solid #E1E8EE;
+            /* Subtle border */
+            border-radius: 12px;
+            text-align: left;
+            /* Alignment from image */
+        }
+
+        .card-content-box {
+            text-align: left !important;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Alignment from image */
+        }
+
+        .card-text-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Hide old step number pill if we are replacing with icon */
+        .step-number {
+            display: none;
+        }
+
+        /* New Icon Circle Style */
+        .card-icon-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #0A2540;
+            /* Dark Navy */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .card-title-hiw {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            /* Bold */
+            color: #000000;
+            /* Black title */
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            color: #1a1a1a;
+            /* Darker text */
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        @media (max-width: 900px) {
             .hiw-content {
                 flex-direction: column-reverse;
+                /* Cards first, then image */
             }
 
             .hiw-image-container {
@@ -798,9 +898,14 @@
                 height: 300px;
             }
 
-            .stack-cards__item {
-                position: relative;
-                top: 0;
+            .stack-cards {
+                max-width: 100%;
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr !important;
+                /* Single column on tablets and below */
+                gap: 20px;
             }
         }
 
@@ -1443,53 +1548,89 @@
 
     <!-- How It Works Section -->
     <section class="how-it-works-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Process</span>
-                <h2 class="section-title">How We <span class="text-orange">Scale You</span></h2>
-                <p class="section-subtitle">Seamless onboarding and ongoing excellence in 4 strategic steps.</p>
-            </div>
+        <div class="section-header">
+            <span class="tag-pill">How It Works</span>
+            <h2 class="section-title">How We <span style="color: var(--accent-orange);">Help You</span></h2>
+            <p class="section-subtitle">Seamless onboarding and ongoing excellence in 4 steps.</p>
+        </div>
 
-            <div class="hiw-content">
-                <ul class="stack-cards js-stack-cards">
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-comments"></i></div>
-                            <h3 class="card-title-hiw">Consultation</h3>
-                            <p class="card-text">We work closely with you to understand your unique business challenges
-                                and specific operational requirements.</p>
+        <div class="hiw-content">
+            <ul class="stack-cards js-stack-cards">
+                <!-- Step 1 -->
+                <li class="stack-cards__item js-stack-cards__item card-1">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: #0A2540;">
+                                <i class="fas fa-comments" style="font-size: 20px;"></i>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0A2540;">Consultation</h3>
+                                <p class="card-text">We work closely with you to understand your business challenges and
+                                    specific operational needs.</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-map-marked-alt"></i></div>
-                            <h3 class="card-title-hiw">Custom Plan</h3>
-                            <p class="card-text">Our experts design tailored systems and workflows specifically aligned
-                                with your long-term business objectives.</p>
-                        </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-rocket"></i></div>
-                            <h3 class="card-title-hiw">Implementation</h3>
-                            <p class="card-text">We seamlessly integrate new tools, HR policies, and accounting
-                                processes into your daily operations.</p>
-                        </div>
-                    </li>
-                    <li class="stack-cards__item js-stack-cards__item">
-                        <div class="card-inner">
-                            <div class="card-icon-circle"><i class="fas fa-handshake-angle"></i></div>
-                            <h3 class="card-title-hiw">Ongoing Support</h3>
-                            <p class="card-text">Continuous assistance and process audits to ensure your business
-                                maintains peak efficiency and sustained growth.</p>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </li>
 
-                <div class="hiw-image-container">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
-                        alt="Business Operations Team">
-                </div>
+                <!-- Step 2 -->
+                <li class="stack-cards__item js-stack-cards__item card-2">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Orange -->
+                            <div class="card-icon-circle" style="background-color: #F05638;">
+                                <i class="fas fa-map-marked-alt" style="font-size: 20px;"></i>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #F05638;">Custom Plan</h3>
+                                <p class="card-text">Our experts design tailored systems and workflows specifically
+                                    aligned with your unique business goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Step 3 -->
+                <li class="stack-cards__item js-stack-cards__item card-3">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <!-- Icon Circle: Navy -->
+                            <div class="card-icon-circle" style="background-color: #0A2540;">
+                                <i class="fas fa-rocket" style="font-size: 20px;"></i>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #0A2540;">Implementation</h3>
+                                <p class="card-text">We seamlessly integrate new tools and processes into your daily
+                                    operations for a smooth transition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Step 4 -->
+                <li class="stack-cards__item js-stack-cards__item card-4">
+                    <div class="card-inner">
+                        <div class="card-content-box">
+                            <div class="card-icon-circle" style="background-color: #F05638;">
+                                <i class="fas fa-handshake-angle" style="font-size: 20px;"></i>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <h3 class="card-title-hiw" style="color: #F05638;">Ongoing Support</h3>
+                                <p class="card-text">Continuous assistance and process optimization to ensure your
+                                    business maintains sustained growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="hiw-image-container">
+                <!-- Business Operations Image -->
+                <img src="../images/business-people-meeting-looking-presentation-screen.jpg"
+                    alt="Business Operations Team">
+                <div style="text-align: center; margin-top: 10px; font-weight: bold; color: #0A2540;">Business
+                    Operations Team</div>
+                <div style="text-align: center; font-size: 14px; color: #556987;">2000+ Businesses Trust Us</div>
             </div>
         </div>
     </section>
