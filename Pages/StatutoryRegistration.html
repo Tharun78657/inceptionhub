@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statutory Registration - Inception Hub</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -200,6 +201,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -402,7 +404,9 @@
             margin-bottom: 24px;
         }
 
-        .text-orange { color: var(--accent-orange); }
+        .text-orange {
+            color: var(--accent-orange);
+        }
 
         .hero-subheadline {
             font-size: clamp(14px, 2vw, 16px);
@@ -527,9 +531,18 @@
         }
 
         @media (max-width: 992px) {
-            .hero-layout { grid-template-columns: 1fr; gap: 40px; }
-            .hero-headline { font-size: 42px; }
-            .hero { padding-top: 100px; }
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-headline {
+                font-size: 42px;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
         }
 
         /* --- Section Headers --- */
@@ -600,7 +613,9 @@
             border-color: transparent;
         }
 
-        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
 
         .service-card .icon-box {
             width: 60px;
@@ -634,7 +649,9 @@
             overflow: hidden;
         }
 
-        .feature-list { list-style: none; }
+        .feature-list {
+            list-style: none;
+        }
 
         .feature-item {
             display: flex;
@@ -651,15 +668,21 @@
         }
 
         @media (max-width: 992px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 600px) {
-            .services-grid { grid-template-columns: 1fr; }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* --- How It Works --- */
-        .how-it-works-section { background: white; }
+        .how-it-works-section {
+            background: white;
+        }
 
         .hiw-content {
             display: flex;
@@ -726,9 +749,21 @@
         }
 
         @media (max-width: 992px) {
-            .hiw-content { flex-direction: column-reverse; }
-            .hiw-image-container { position: relative; top: 0; width: 100%; height: 300px; }
-            .stack-cards__item { position: relative; top: 0; }
+            .hiw-content {
+                flex-direction: column-reverse;
+            }
+
+            .hiw-image-container {
+                position: relative;
+                top: 0;
+                width: 100%;
+                height: 300px;
+            }
+
+            .stack-cards__item {
+                position: relative;
+                top: 0;
+            }
         }
 
         /* --- Document Cards --- */
@@ -747,7 +782,9 @@
             transition: transform 0.3s ease;
         }
 
-        .doc-card:hover { transform: translateY(-5px); }
+        .doc-card:hover {
+            transform: translateY(-5px);
+        }
 
         .doc-image-box {
             background: #EAF6FF;
@@ -774,8 +811,17 @@
             letter-spacing: 0.5px;
         }
 
-        @media (max-width: 992px) { .doc-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .doc-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 992px) {
+            .doc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* --- CTA Section --- */
         .cta-section {
@@ -787,7 +833,12 @@
             overflow: hidden;
         }
 
-        .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
         .trust-badge {
             display: inline-flex;
@@ -802,12 +853,28 @@
             margin-bottom: 24px;
         }
 
-        .star-icon { color: var(--accent); }
+        .star-icon {
+            color: var(--accent);
+        }
 
-        .cta-headline { font-size: 42px; font-weight: 800; margin-bottom: 24px; }
-        .cta-desc { font-size: 18px; opacity: 0.9; margin-bottom: 40px; }
+        .cta-headline {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
 
-        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .cta-desc {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
         .btn-outline-cta {
             background: transparent;
@@ -820,7 +887,10 @@
             transition: all 0.3s ease;
         }
 
-        .btn-outline-cta:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
+        .btn-outline-cta:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
 
         /* --- Footer --- */
         .site-footer {
@@ -836,10 +906,21 @@
             margin-bottom: 60px;
         }
 
-        .footer-logo img { height: 80px; margin-bottom: 24px; }
-        .footer-desc { color: var(--gray-600); margin-bottom: 30px; }
+        .footer-logo img {
+            height: 80px;
+            margin-bottom: 24px;
+        }
 
-        .social-links { display: flex; gap: 12px; }
+        .footer-desc {
+            color: var(--gray-600);
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
         .social-icon {
             width: 40px;
             height: 40px;
@@ -852,25 +933,82 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        .social-icon:hover { background: var(--accent); transform: translateY(-3px); }
 
-        .footer-heading { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 24px; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-link { color: var(--gray-600); text-decoration: none; transition: color 0.3s; }
-        .footer-link:hover { color: var(--accent); }
+        .social-icon:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
 
-        .contact-item { display: flex; gap: 15px; margin-bottom: 20px; color: var(--gray-600); }
-        .contact-icon { color: var(--accent); }
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
 
-        .footer-bottom { border-top: 1px solid var(--gray-200); padding: 30px 0; }
-        .footer-bottom-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .copyright { font-size: 14px; color: var(--gray-400); }
-        .policy-links { display: flex; gap: 20px; }
-        .policy-link { font-size: 14px; color: var(--gray-400); text-decoration: none; }
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--gray-600);
+        }
+
+        .contact-icon {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-200);
+            padding: 30px 0;
+        }
+
+        .footer-bottom-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        .policy-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .policy-link {
+            font-size: 14px;
+            color: var(--gray-400);
+            text-decoration: none;
+        }
 
         @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         /* --- WhatsApp Float --- */
@@ -893,8 +1031,10 @@
             text-decoration: none;
         }
 
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
-
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
     </style>
 </head>
 
@@ -920,15 +1060,19 @@
         <div class="sidebar-content">
             <ul class="sidebar-menu">
                 <li class="sidebar-item"><a href="../index.html" class="sidebar-link">Home</a></li>
-                <li class="sidebar-item"><a href="BusinessRegistration.html" class="sidebar-link">Business Registration</a></li>
-                <li class="sidebar-item"><a href="StatutoryRegistration.html" class="sidebar-link">Statutory Registration</a></li>
+                <li class="sidebar-item"><a href="BusinessRegistration.html" class="sidebar-link">Business
+                        Registration</a></li>
+                <li class="sidebar-item"><a href="StatutoryRegistration.html" class="sidebar-link">Statutory
+                        Registration</a></li>
                 <li class="sidebar-item"><a href="OnlinePresence.html" class="sidebar-link">Online Presence</a></li>
-                <li class="sidebar-item"><a href="BusinessOperations.html" class="sidebar-link">Business Operations</a></li>
+                <li class="sidebar-item"><a href="BusinessOperations.html" class="sidebar-link">Business Operations</a>
+                </li>
                 <li class="sidebar-item"><a href="Compliances.html" class="sidebar-link">Compliances</a></li>
             </ul>
             <div class="sidebar-footer">
                 <p style="font-size: 14px; opacity: 0.7;">Need expert help?</p>
-                <a href="mailto:info@inceptionhub.in" class="sidebar-link" style="font-size: 16px;">info@inceptionhub.in</a>
+                <a href="mailto:info@inceptionhub.in" class="sidebar-link"
+                    style="font-size: 16px;">info@inceptionhub.in</a>
             </div>
         </div>
     </div>
@@ -975,7 +1119,8 @@
                     Complete <span class="text-orange">Statutory Registration</span> For Your Business
                 </h1>
                 <p class="hero-subheadline">
-                    Get all mandatory licenses and registrations for your business. GST, FSSAI, MSME, Trade License, IEC and more - all under one roof.
+                    Get all mandatory licenses and registrations for your business. GST, FSSAI, MSME, Trade License, IEC
+                    and more - all under one roof.
                 </p>
                 <div class="stats-row">
                     <div class="stat-item">
@@ -1038,7 +1183,8 @@
             <div class="section-header">
                 <span class="tag-pill">Legal Services</span>
                 <h2 class="section-title">Essential Licenses & Registrations</h2>
-                <p class="section-subtitle">Get all mandatory compliances for your business with our expert assistance</p>
+                <p class="section-subtitle">Get all mandatory compliances for your business with our expert assistance
+                </p>
             </div>
 
             <div class="services-grid">
@@ -1046,7 +1192,8 @@
                 <div class="service-card">
                     <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
                     <h3 class="service-title">GST Registration</h3>
-                    <p class="service-desc">Mandatory for businesses with turnover above ₹40 lakhs. Get your GSTIN in 3-5 working days.</p>
+                    <p class="service-desc">Mandatory for businesses with turnover above ₹40 lakhs. Get your GSTIN in
+                        3-5 working days.</p>
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-check-circle"></i> 15-digit unique GSTIN</li>
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Input tax credit benefits</li>
@@ -1058,7 +1205,8 @@
                 <div class="service-card">
                     <div class="icon-box orange"><i class="fas fa-utensils"></i></div>
                     <h3 class="service-title">FSSAI License</h3>
-                    <p class="service-desc">Required for all food businesses. Get basic, state, or central license based on your turnover.</p>
+                    <p class="service-desc">Required for all food businesses. Get basic, state, or central license based
+                        on your turnover.</p>
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-check-circle"></i> 14-digit license number</li>
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Valid for 1-5 years</li>
@@ -1070,7 +1218,8 @@
                 <div class="service-card">
                     <div class="icon-box"><i class="fas fa-industry"></i></div>
                     <h3 class="service-title">MSME/Udyam Registration</h3>
-                    <p class="service-desc">Free government registration for small businesses. Unlock subsidies and benefits worth lakhs.</p>
+                    <p class="service-desc">Free government registration for small businesses. Unlock subsidies and
+                        benefits worth lakhs.</p>
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Lifetime validity</li>
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Lower interest rates on loans</li>
@@ -1082,7 +1231,8 @@
                 <div class="service-card">
                     <div class="icon-box orange"><i class="fas fa-store"></i></div>
                     <h3 class="service-title">Trade License</h3>
-                    <p class="service-desc">Municipal permission to run business from a specific location. Mandatory for all establishments.</p>
+                    <p class="service-desc">Municipal permission to run business from a specific location. Mandatory for
+                        all establishments.</p>
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Local authority approval</li>
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Legal business operation</li>
@@ -1094,7 +1244,8 @@
                 <div class="service-card">
                     <div class="icon-box"><i class="fas fa-globe"></i></div>
                     <h3 class="service-title">Import Export Code (IEC)</h3>
-                    <p class="service-desc">One-time registration to import or export goods. Mandatory for international trade.</p>
+                    <p class="service-desc">One-time registration to import or export goods. Mandatory for international
+                        trade.</p>
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-check-circle"></i> One-time lifetime validity</li>
                         <li class="feature-item"><i class="fas fa-check-circle"></i> No renewal required</li>
@@ -1106,7 +1257,8 @@
                 <div class="service-card">
                     <div class="icon-box orange"><i class="fas fa-registered"></i></div>
                     <h3 class="service-title">Trademark Registration</h3>
-                    <p class="service-desc">Protect your brand name, logo, and tagline. 10 years protection with renewal options.</p>
+                    <p class="service-desc">Protect your brand name, logo, and tagline. 10 years protection with renewal
+                        options.</p>
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Complete brand protection</li>
                         <li class="feature-item"><i class="fas fa-check-circle"></i> Exclusive legal ownership</li>
@@ -1132,34 +1284,39 @@
                         <div class="card-inner">
                             <div class="card-icon-circle"><i class="fas fa-list-check"></i></div>
                             <h3 class="card-title-hiw">Choose Service</h3>
-                            <p class="card-text">Select the license or registration you need from our comprehensive range of legal services tailored for your business.</p>
+                            <p class="card-text">Select the license or registration you need from our comprehensive
+                                range of legal services tailored for your business.</p>
                         </div>
                     </li>
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
                             <div class="card-icon-circle"><i class="fas fa-upload"></i></div>
                             <h3 class="card-title-hiw">Submit Documents</h3>
-                            <p class="card-text">Upload your required documents securely. Our team will verify and prepare all paperwork for government submission.</p>
+                            <p class="card-text">Upload your required documents securely. Our team will verify and
+                                prepare all paperwork for government submission.</p>
                         </div>
                     </li>
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
                             <div class="card-icon-circle"><i class="fas fa-user-shield"></i></div>
                             <h3 class="card-title-hiw">Expert Processing</h3>
-                            <p class="card-text">Our legal experts handle all government formalities, follow-ups, and compliance checks to ensure smooth approval.</p>
+                            <p class="card-text">Our legal experts handle all government formalities, follow-ups, and
+                                compliance checks to ensure smooth approval.</p>
                         </div>
                     </li>
                     <li class="stack-cards__item js-stack-cards__item">
                         <div class="card-inner">
                             <div class="card-icon-circle"><i class="fas fa-award"></i></div>
                             <h3 class="card-title-hiw">Get License</h3>
-                            <p class="card-text">Receive your approved license or registration certificate directly. We ensure timely delivery with full documentation.</p>
+                            <p class="card-text">Receive your approved license or registration certificate directly. We
+                                ensure timely delivery with full documentation.</p>
                         </div>
                     </li>
                 </ul>
 
                 <div class="hiw-image-container">
-                    <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=800&q=80" alt="Legal Registration Process">
+                    <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=800&q=80"
+                        alt="Legal Registration Process">
                 </div>
             </div>
         </div>
@@ -1207,9 +1364,11 @@
     <section class="cta-section">
         <style>
             .cta-section {
-                background-color: #0A2540; /* Dark Blue */
-                background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-                background-size: 30px 30px; /* Base for dots */
+                background-color: #0A2540;
+                /* Dark Blue */
+                background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+                background-size: 30px 30px;
+                /* Base for dots */
                 padding: 60px 0;
                 text-align: center;
                 color: white;
@@ -1222,10 +1381,13 @@
             .cta-section::before {
                 content: '';
                 position: absolute;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background-image: 
-                    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image:
+                    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
                 background-size: 30px 30px;
                 background-position: center center;
                 mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
@@ -1362,6 +1524,7 @@
                 .trust-features-row {
                     gap: 20px;
                 }
+
                 .trust-feature-item {
                     font-size: 14px;
                 }
@@ -1512,7 +1675,8 @@
             }
 
             .contact-info-icon {
-                color: #556987; /* Light gray-blue as per image */
+                color: #556987;
+                /* Light gray-blue as per image */
                 margin-top: 3px;
                 font-size: 14px;
                 flex-shrink: 0;
@@ -1566,6 +1730,7 @@
                     grid-template-columns: 1fr;
                     gap: 40px;
                 }
+
                 .footer-heading {
                     margin-bottom: 20px;
                 }
@@ -1576,10 +1741,12 @@
             <!-- Branding Column -->
             <div class="footer-column">
                 <a href="../index.html" class="footer-logo-link">
-                    <img src="../images/logo.png" alt="Inception Hub Logo" class="footer-logo-img" style="height: 60px;">
+                    <img src="../images/logo.png" alt="Inception Hub Logo" class="footer-logo-img"
+                        style="height: 60px;">
                 </a>
                 <p class="footer-description">
-                    Transforming your ideas into reality with comprehensive business solutions across registration, legal compliance, online presence, and more.
+                    Transforming your ideas into reality with comprehensive business solutions across registration,
+                    legal compliance, online presence, and more.
                 </p>
                 <div class="social-icons-row">
                     <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
@@ -1611,7 +1778,8 @@
                     </div>
                     <div class="contact-info-item">
                         <i class="fas fa-map-marker-alt contact-info-icon"></i>
-                        <span>Flat No 202, 2nd Floor, Satyabama Complex, Opposite Sai Baba Temple, Bhagya Nagar Colony, Kukatpally, Hyderabad, Telangana 500072, India.</span>
+                        <span>Flat No 202, 2nd Floor, Satyabama Complex, Opposite Sai Baba Temple, Bhagya Nagar Colony,
+                            Kukatpally, Hyderabad, Telangana 500072, India.</span>
                     </div>
                 </div>
             </div>

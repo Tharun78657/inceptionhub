@@ -675,13 +675,18 @@
             transform: translateY(-1px);
         }
 
-        /* Tablet Responsive */
+        @media (max-width: 1024px) {
+            .hero-layout {
+                flex-direction: column;
+                gap: 60px;
+            }
+        }
+
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column;
                 text-align: center;
                 padding: 140px 0 60px;
-                /* Adjust for mobile */
             }
 
             .hero-content {
@@ -697,51 +702,8 @@
                 justify-content: center;
                 gap: 20px;
             }
-
-            .nav-menu {
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .consultation-card {
-                padding: 20px 25px;
-                /* Adjust card padding for mobile */
-            }
         }
 
-        /* Small Mobile Devices */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-                /* Reduce padding on very small screens */
-            }
-
-            .hero {
-                padding: 120px 0 40px;
-            }
-
-            .stats-row {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-
-            .stat-item {
-                text-align: center;
-            }
-
-            .consultation-card {
-                padding: 15px 20px;
-            }
-
-            .service-card {
-                padding: 20px;
-            }
-        }
 
         /* --- Services Section Styles --- */
         .services-section {
@@ -782,13 +744,13 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 30px;
         }
 
         .service-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 32px;
+            padding: 40px;
             box-shadow: var(--shadow-md);
             transition: all 0.3s ease;
             border: 1px solid var(--gray-200);
@@ -839,14 +801,58 @@
             font-size: 20px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .service-desc {
-            color: var(--gray-600);
             font-size: 15px;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            height: 72px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 120px 0 40px;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .consultation-card {
+                padding: 15px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .service-title {
+                font-size: 20px;
+            }
         }
 
         .feature-list {
@@ -1297,7 +1303,7 @@
 
 <body>
     <nav class="navbar-custom">
-        <a href="#" class="nav-brand">
+        <a href="../index.html" class="nav-brand">
             <img src="../images/logo.png" alt="Inception Hub Logo" class="nav-logo-img">
         </a>
 
@@ -1782,9 +1788,11 @@
     <section class="cta-section">
         <style>
             .cta-section {
-                background-color: #0A2540; /* Dark Blue */
-                background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-                background-size: 30px 30px; /* Base for dots */
+                background-color: #0A2540;
+                /* Dark Blue */
+                background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+                background-size: 30px 30px;
+                /* Base for dots */
                 padding: 60px 0;
                 text-align: center;
                 color: white;
@@ -1796,10 +1804,13 @@
             .cta-section::before {
                 content: '';
                 position: absolute;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background-image: 
-                    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image:
+                    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
                 background-size: 30px 30px;
                 background-position: center center;
                 mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
@@ -1936,6 +1947,7 @@
                 .trust-features-row {
                     gap: 20px;
                 }
+
                 .trust-feature-item {
                     font-size: 14px;
                 }
@@ -2086,7 +2098,8 @@
             }
 
             .contact-info-icon {
-                color: #556987; /* Light gray-blue as per image */
+                color: #556987;
+                /* Light gray-blue as per image */
                 margin-top: 3px;
                 font-size: 14px;
                 flex-shrink: 0;
@@ -2140,6 +2153,7 @@
                     grid-template-columns: 1fr;
                     gap: 40px;
                 }
+
                 .footer-heading {
                     margin-bottom: 20px;
                 }
@@ -2150,10 +2164,12 @@
             <!-- Branding Column -->
             <div class="footer-column">
                 <a href="../index.html" class="footer-logo-link">
-                    <img src="../images/logo.png" alt="Inception Hub Logo" class="footer-logo-img" style="height: 60px;">
+                    <img src="../images/logo.png" alt="Inception Hub Logo" class="footer-logo-img"
+                        style="height: 60px;">
                 </a>
                 <p class="footer-description">
-                    Transforming your ideas into reality with comprehensive business solutions across registration, legal compliance, online presence, and more.
+                    Transforming your ideas into reality with comprehensive business solutions across registration,
+                    legal compliance, online presence, and more.
                 </p>
                 <div class="social-icons-row">
                     <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
@@ -2185,7 +2201,8 @@
                     </div>
                     <div class="contact-info-item">
                         <i class="fas fa-map-marker-alt contact-info-icon"></i>
-                        <span>Flat No 202, 2nd Floor, Satyabama Complex, Opposite Sai Baba Temple, Bhagya Nagar Colony, Kukatpally, Hyderabad, Telangana 500072, India.</span>
+                        <span>Flat No 202, 2nd Floor, Satyabama Complex, Opposite Sai Baba Temple, Bhagya Nagar Colony,
+                            Kukatpally, Hyderabad, Telangana 500072, India.</span>
                     </div>
                 </div>
             </div>
@@ -2574,6 +2591,8 @@
         });
 
     </script>
+    <!-- Mobile Bottom Decoration -->
+    <div class="mobile-bg-bottom-decor" aria-hidden="true"></div>
 </body>
 
 </html>

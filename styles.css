@@ -28,19 +28,21 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, sans-serif;
   background-color: #FAFAFA;
+  background-image: url('images/f3.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #222;
   position: relative;
-  /* Allow vertical panning; JS also sets pan-y on mobile */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   min-height: 100vh;
   overflow-y: auto;
 }
+
 
 .orange-header {
   display: none;
@@ -1223,9 +1225,26 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
   }
 
   .icons-section {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50% !important;
+    bottom: 30px !important;
+    top: auto !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
     gap: 16px;
+    z-index: 100 !important;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .stage-overlay {
+    align-items: flex-end !important;
+    padding-bottom: 140px !important;
+    padding-top: 40px !important;
   }
 
   .icon-box {
@@ -1599,7 +1618,9 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
 
   /* Stage overlay adjustments */
   .stage-overlay {
-    padding-top: 90px;
+    align-items: flex-end !important;
+    padding-bottom: 120px !important;
+    padding-top: 20px !important;
   }
 
   .stage-inner {
@@ -1807,5 +1828,33 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
   .watch-btn {
     padding: 12px 34px;
     font-size: 15px;
+  }
+}
+
+/* Mobile Bottom Background Decoration - Universal */
+.mobile-bg-bottom-decor {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: #FAFAFA !important;
+    background-image: none !important;
+  }
+
+  .mobile-bg-bottom-decor {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Increased height for better visibility */
+    background-image: url('images/f4.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto; /* Ensures it spans the full width of mobile screens */
+    z-index: 35;
+    pointer-events: none;
+    opacity: 1;
   }
 }
