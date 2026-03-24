@@ -1619,7 +1619,7 @@ body:has(.inceptionhub-sidebar.open) .logo.logo-pill {
   /* Stage overlay adjustments */
   .stage-overlay {
     align-items: flex-start !important;
-    padding-top: 100px !important;
+    padding-top: 140px !important;
     padding-bottom: 40px !important;
   }
 

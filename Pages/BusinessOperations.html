@@ -184,6 +184,47 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
+        @media (max-width: 600px) {
+
+            .hero {
+                padding: 120px 0 40px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .consultation-card {
+                padding: 15px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar-custom {
+                width: 280px;
+                justify-content: space-between;
+                border-bottom-right-radius: 20px;
+                padding: 8px 15px;
+            }
+
+            .nav-logo-img {
+                height: 38px;
+            }
+
+        }
+
         /* --- Icons Section Styles --- */
         @keyframes fadeInFromTop {
             from {
@@ -287,12 +328,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 37, 64, 0.4);
-            z-index: 999;
+            background-color: rgba(10, 37, 64, 0.5);
+            z-index: 997;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .sidebar-overlay.active {
@@ -304,50 +344,52 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 340px;
-            height: 100vh;
-            background: var(--primary);
-            z-index: 1000;
+            width: 330px;
+            background: linear-gradient(180deg, #1B4B7A 0%, #090909 100%);
+            z-index: 998;
             transform: translateX(-100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 100px 40px 40px;
-            display: flex;
-            flex-direction: column;
-            color: white;
+            transition: transform 0.3s ease-in-out;
+            height: 100vh;
         }
 
         .sidebar-nav.active {
             transform: translateX(0);
         }
 
-        .sidebar-menu {
-            list-style: none;
-            margin-top: 20px;
+        .sidebar-content {
+            padding: 100px 0 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
         }
 
-        .sidebar-item {
-            margin-bottom: 15px;
+        .sidebar-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
         }
 
         .sidebar-link {
-            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 40px;
+            color: white;
             text-decoration: none;
-            font-size: 18px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 10px 0;
         }
 
         .sidebar-link:hover {
-            color: var(--accent);
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .sidebar-footer {
-            margin-top: auto;
+            padding: 20px 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
         }
 
         /* --- Hero Section --- */
@@ -648,6 +690,28 @@
         }
 
         @media (max-width: 600px) {
+            .hero {
+                padding: 120px 0 40px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .consultation-card {
+                padding: 15px 20px;
+            }
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -951,6 +1015,197 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* --- How It Works / Stacking Cards Styles --- */
+        .how-it-works-section {
+            width: 100%;
+            padding: 0 0 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .hiw-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .hiw-image-container {
+            flex: 1;
+            max-width: 540px;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 120px;
+            height: 480px;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 1100px) {
+            .hiw-content {
+                gap: 30px;
+            }
+        }
+
+        .hiw-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stack-cards {
+            --stack-cards-item-ratio: 16/9;
+            list-style: none;
+            width: 100%;
+            max-width: 540px;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .stack-cards__item {
+            position: relative;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 100px;
+            height: 0;
+            padding-bottom: calc(100%/(var(--stack-cards-item-ratio)));
+            transform-origin: center top;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.02);
+            border-radius: 24px;
+            overflow: hidden;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stack-cards__item:nth-child(1),
+        .stack-cards__item:nth-child(2),
+        .stack-cards__item:nth-child(3),
+        .stack-cards__item:nth-child(4) {
+            top: 120px;
+        }
+
+        .stack-cards__item>.card-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 40px;
+            background-color: #F8F9FA !important;
+            border: 1px solid #E1E8EE;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .card-icon-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #0A2540;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .card-title-hiw {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            color: #1a1a1a;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        @media (max-width: 900px) {
+            .hiw-content {
+                flex-direction: column-reverse;
+            }
+
+            .hiw-image-container {
+                position: relative;
+                top: 0;
+                width: 100%;
+                height: 300px;
+            }
+
+            .stack-cards {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .how-it-works-section {
+                padding-bottom: 60px;
+                gap: 40px;
+            }
+
+            .hiw-image-container {
+                height: 250px;
+                border-radius: 20px;
+            }
+
+            .stack-cards__item {
+                border-radius: 16px;
+                top: 60px !important;
+            }
+
+            .stack-cards__item:nth-child(1),
+            .stack-cards__item:nth-child(2),
+            .stack-cards__item:nth-child(3),
+            .stack-cards__item:nth-child(4) {
+                top: 60px !important;
+            }
+
+            .stack-cards__item>.card-inner {
+                padding: 24px;
+                border-radius: 10px;
+            }
+
+            .card-icon-circle {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 16px;
+            }
+
+            .card-icon-circle svg,
+            .card-icon-circle i {
+                font-size: 20px !important;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .card-title-hiw {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .card-text {
+                font-size: 13px;
+                line-height: 1.6;
+            }
         }
     </style>
 </head>
@@ -1680,6 +1935,81 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        // Stacking Cards Script (Exact Overlap Version)
+        (function () {
+            var StackCards = function (element) {
+                this.element = element;
+                this.items = this.element.getElementsByClassName('js-stack-cards__item');
+                this.scrollingFn = false;
+                this.scrolling = false;
+                initStackCardsEffect(this);
+                initStackCardsResize(this);
+            };
+
+            function initStackCardsEffect(element) {
+                setStackCards(element);
+                var observer = new IntersectionObserver(stackCardsCallback.bind(element), { threshold: [0, 1] });
+                observer.observe(element.element);
+            };
+
+            function initStackCardsResize(element) {
+                window.addEventListener('resize', function () {
+                    setStackCards(element);
+                    animateStackCards.call(element);
+                });
+            };
+
+            function stackCardsCallback(entries) {
+                if (entries[0].isIntersecting) {
+                    if (this.scrollingFn) return;
+                    stackCardsInitEvent(this);
+                } else {
+                    if (!this.scrollingFn) return;
+                    window.removeEventListener('scroll', this.scrollingFn);
+                    this.scrollingFn = false;
+                }
+            };
+
+            function stackCardsInitEvent(element) {
+                element.scrollingFn = stackCardsScrolling.bind(element);
+                window.addEventListener('scroll', element.scrollingFn);
+            };
+
+            function stackCardsScrolling() {
+                if (this.scrolling) return;
+                this.scrolling = true;
+                window.requestAnimationFrame(animateStackCards.bind(this));
+            };
+
+            function setStackCards(element) {
+                element.expectScrollHeight = window.innerHeight * 0.5;
+                if (element.items.length === 0) return;
+                var cardStyle = getComputedStyle(element.items[0]);
+                element.cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top')));
+                element.cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')));
+                element.element.style.paddingBottom = '0px';
+                for (var i = 0; i < element.items.length; i++) {
+                    element.items[i].style.transform = 'none';
+                    element.items[i].style.zIndex = i + 1;
+                }
+            };
+
+            function animateStackCards() {
+                for (var i = 0; i < this.items.length; i++) {
+                    this.items[i].style.transform = 'none';
+                }
+                this.scrolling = false;
+            };
+
+            var stackCards = document.getElementsByClassName('js-stack-cards');
+            if (stackCards.length > 0) {
+                for (var i = 0; i < stackCards.length; i++) {
+                    new StackCards(stackCards[i]);
+                }
+            }
+        }());
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navToggle = document.querySelector('.nav-toggle');
